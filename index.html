@@ -1,0 +1,450 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.platform { max-width: 900px; margin: 0 auto; padding: 1rem; font-family: 'Courier New', monospace; }
+.header { border-bottom: 2px solid #1a1a2e; padding: 1.5rem 0 1rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+.header-left h1 { font-size: 20px; font-weight: 700; letter-spacing: 2px; color: var(--color-text-primary); text-transform: uppercase; }
+.header-left p { font-size: 11px; color: var(--color-text-secondary); letter-spacing: 1px; margin-top: 4px; }
+.timer-box { background: #1a1a2e; color: #00ff88; font-size: 22px; font-weight: 700; padding: 8px 16px; border-radius: 4px; letter-spacing: 3px; }
+.candidate-form { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; }
+.candidate-form h3 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.form-group label { font-size: 11px; color: var(--color-text-secondary); letter-spacing: 1px; display: block; margin-bottom: 4px; }
+.form-group input { width: 100%; padding: 8px; font-size: 13px; border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; background: var(--color-background-primary); color: var(--color-text-primary); font-family: 'Courier New', monospace; }
+.progress-bar { display: flex; gap: 4px; margin-bottom: 1.5rem; }
+.prog-step { flex: 1; height: 6px; border-radius: 3px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); transition: background 0.3s; }
+.prog-step.active { background: #1a1a2e; }
+.prog-step.done { background: #00b85c; }
+.section-nav { display: flex; gap: 6px; margin-bottom: 1rem; flex-wrap: wrap; }
+.sec-btn { padding: 5px 12px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; background: var(--color-background-primary); color: var(--color-text-secondary); cursor: pointer; font-family: 'Courier New', monospace; }
+.sec-btn.active { background: #1a1a2e; color: #00ff88; border-color: #1a1a2e; }
+.sec-btn.done { background: #e8f9f0; color: #00803f; border-color: #00803f; }
+.sec-btn.fabric-btn.active { background: #0078d4; color: #fff; border-color: #0078d4; }
+.question-card { border: 0.5px solid var(--color-border-tertiary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--color-background-primary); }
+.question-card.fabric-card { border-color: #0078d4; border-width: 1px; }
+.q-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+.q-num { font-size: 11px; letter-spacing: 2px; color: var(--color-text-secondary); text-transform: uppercase; }
+.q-points { font-size: 11px; padding: 2px 8px; border-radius: 3px; background: #1a1a2e; color: #00ff88; letter-spacing: 1px; }
+.q-points.fabric-pts { background: #0078d4; color: #fff; }
+.q-tag { font-size: 10px; padding: 2px 8px; border-radius: 3px; background: #e3f2fd; color: #0c447c; border: 0.5px solid #85b7eb; letter-spacing: 1px; margin-left: 6px; }
+.q-text { font-size: 14px; color: var(--color-text-primary); margin-bottom: 0.75rem; line-height: 1.6; }
+.q-context { font-size: 12px; background: var(--color-background-secondary); border-left: 3px solid #0078d4; padding: 8px 12px; margin-bottom: 0.75rem; color: var(--color-text-secondary); border-radius: 0 4px 4px 0; line-height: 1.5; font-family: 'Courier New', monospace; }
+.answer-area { position: relative; }
+.answer-textarea { width: 100%; min-height: 140px; padding: 10px; font-size: 13px; font-family: 'Courier New', monospace; border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; background: var(--color-background-primary); color: var(--color-text-primary); resize: vertical; line-height: 1.6; }
+.answer-textarea:focus { outline: none; border-color: #0078d4; }
+.answer-metrics { display: flex; gap: 12px; margin-top: 6px; flex-wrap: wrap; }
+.metric-pill { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); letter-spacing: 0.5px; }
+.metric-pill.warn { background: #fff8e1; color: #b36200; border-color: #ffcc00; }
+.metric-pill.danger { background: #fdecea; color: #c62828; border-color: #ef5350; }
+.suspicion-banner { display: none; margin-top: 8px; padding: 8px 12px; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; font-size: 12px; color: #856404; font-family: 'Courier New', monospace; }
+.section-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+.btn-primary { padding: 8px 20px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; background: #1a1a2e; color: #00ff88; border: none; border-radius: 4px; cursor: pointer; font-family: 'Courier New', monospace; }
+.btn-fabric { padding: 8px 20px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; background: #0078d4; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-family: 'Courier New', monospace; }
+.btn-secondary { padding: 8px 20px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; background: transparent; color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; cursor: pointer; font-family: 'Courier New', monospace; }
+.score-section { background: #1a1a2e; border-radius: 8px; padding: 1.5rem; color: #00ff88; margin-bottom: 1rem; font-family: 'Courier New', monospace; }
+.score-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 1rem; }
+.score-grid-2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+.score-card { background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.2); border-radius: 6px; padding: 10px; text-align: center; }
+.score-card.fabric-sc { background: rgba(0,120,212,0.15); border-color: rgba(0,120,212,0.4); }
+.score-card .sc-val { font-size: 22px; font-weight: 700; }
+.score-card .sc-label { font-size: 9px; letter-spacing: 1px; opacity: 0.7; margin-top: 2px; }
+.ai-report { background: var(--color-background-secondary); border-radius: 8px; padding: 1.25rem; border: 0.5px solid var(--color-border-tertiary); margin-bottom: 1rem; }
+.ai-report h3 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: 0.75rem; }
+.ai-event { font-size: 11px; padding: 4px 8px; margin-bottom: 4px; border-radius: 3px; font-family: 'Courier New', monospace; border-left: 3px solid; }
+.ai-event.low { background: #fff8e1; border-color: #ffc107; color: #856404; }
+.ai-event.medium { background: #fff3e0; border-color: #ff9800; color: #7c4000; }
+.ai-event.high { background: #fdecea; border-color: #ef5350; color: #c62828; }
+.download-area { text-align: center; padding: 1rem; }
+.btn-download { padding: 12px 32px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; background: #00b85c; color: white; border: none; border-radius: 4px; cursor: pointer; font-family: 'Courier New', monospace; margin: 4px; }
+.fabric-badge { display: inline-flex; align-items: center; gap: 6px; background: #e3f2fd; color: #0c447c; border: 0.5px solid #85b7eb; border-radius: 4px; padding: 4px 10px; font-size: 11px; letter-spacing: 1px; margin-bottom: 8px; }
+.hidden { display: none; }
+</style>
+
+<div class="platform">
+  <div class="header">
+    <div class="header-left">
+      <h1>Data Architect Assessment</h1>
+      <p>Evaluación Técnica — Nivel Senior · Versión 2025 · 6 Secciones</p>
+    </div>
+    <div class="header-right">
+      <div class="timer-box" id="timer">105:00</div>
+      <div style="font-size:10px; color:var(--color-text-secondary); margin-top:4px; letter-spacing:1px; text-align:right;">TIEMPO RESTANTE</div>
+    </div>
+  </div>
+
+  <div id="start-screen">
+    <div class="candidate-form">
+      <h3>Datos del Candidato</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Nombre Completo</label><input type="text" id="cand-name" placeholder="Tu nombre completo" /></div>
+        <div class="form-group"><label>Años de Experiencia</label><input type="text" id="cand-exp" placeholder="Ej: 5 años" /></div>
+        <div class="form-group"><label>Puesto Actual</label><input type="text" id="cand-role" placeholder="Ej: Data Engineer" /></div>
+      </div>
+    </div>
+    <div style="background: #e3f2fd; border: 1px solid #85b7eb; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 12px; color: #0c447c; line-height: 1.8;">
+      <strong>NUEVO — Sección 6: Microsoft Fabric &amp; Migración On-Premise</strong><br>
+      Esta evaluación incluye una sección dedicada a Microsoft Fabric: arquitectura Lakehouse, OneLake, experiencias integradas y estrategias de migración desde entornos on-premise (SSIS, SSAS, SSRS, SQL Server).
+    </div>
+    <div style="background: #fff8e1; border: 1px solid #ffc107; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; font-size: 12px; color: #856404; line-height: 1.8;">
+      <strong>INSTRUCCIONES</strong><br>
+      • La prueba dura 105 minutos (15 adicionales por la sección Fabric). El tiempo corre desde "Iniciar".<br>
+      • Prohibido el uso de IA — la plataforma monitorea patrones de escritura, cambios de pestaña y copiar/pegar.<br>
+      • Todo evento sospechoso queda registrado en el reporte final descargable.
+    </div>
+    <div style="text-align: center;"><button class="btn-primary" onclick="startAssessment()" style="font-size:14px; padding: 12px 40px;">INICIAR EVALUACIÓN →</button></div>
+  </div>
+
+  <div id="assessment-screen" class="hidden">
+    <div class="progress-bar" id="progress-bar">
+      <div class="prog-step" id="ps-0"></div>
+      <div class="prog-step" id="ps-1"></div>
+      <div class="prog-step" id="ps-2"></div>
+      <div class="prog-step" id="ps-3"></div>
+      <div class="prog-step" id="ps-4"></div>
+      <div class="prog-step" id="ps-5"></div>
+    </div>
+    <div class="section-nav" id="section-nav"></div>
+    <div id="questions-container"></div>
+    <div class="section-actions">
+      <button class="btn-secondary" onclick="prevSection()">← Anterior</button>
+      <span style="font-size:11px; color:var(--color-text-secondary); letter-spacing:1px;" id="section-indicator"></span>
+      <button id="next-btn" class="btn-primary" onclick="nextSection()">Siguiente →</button>
+    </div>
+  </div>
+
+  <div id="result-screen" class="hidden">
+    <div class="score-section">
+      <div style="font-size:11px; letter-spacing:2px; opacity:0.7;">RESULTADO FINAL</div>
+      <div style="font-size:36px; font-weight:700; margin: 8px 0;" id="total-score">--/110</div>
+      <div style="font-size:12px; opacity:0.7;" id="result-verdict">Calculando...</div>
+      <div style="font-size:10px; letter-spacing:1px; margin-top:12px; opacity:0.6;">SECCIONES CORE (100 PTS)</div>
+      <div class="score-grid" id="score-grid-core"></div>
+      <div style="font-size:10px; letter-spacing:1px; margin-top:12px; color:#4fc3f7;">MICROSOFT FABRIC (10 PTS BONUS)</div>
+      <div class="score-grid-2" id="score-grid-fabric"></div>
+    </div>
+    <div class="ai-report" id="ai-report">
+      <h3>Reporte de comportamiento</h3>
+      <div id="ai-events-list"></div>
+    </div>
+    <div class="download-area"><button class="btn-download" onclick="downloadReport()">↓ DESCARGAR REPORTE TXT</button></div>
+  </div>
+</div>
+
+<script>
+const SECTIONS = [
+  {
+    id:'etl', label:'ETL / Pipelines', weight:20, fabric:false,
+    questions:[
+      { id:'q1', points:10, text:'Diseña un pipeline ETL para ingestar datos de ventas desde una API REST que retorna JSON, transformarlos y cargarlos en un Data Warehouse. Explica cada capa, manejo de errores y estrategia de reintentos.', context:'La API retorna ~500K registros/día. El DW es Snowflake. Los datos tienen campos nulos frecuentes en "discount_pct" y "region_code". Se requiere idempotencia.', type:'text', minWords:80 },
+      { id:'q2', points:10, text:'Escribe código Python (pandas o pyspark) para limpiar un DataFrame con columnas: order_id, date, amount, customer_id, status. Incluye deduplicación, normalización de fechas, validación de tipos y manejo de nulos.', context:'order_id puede ser int o string. date viene en múltiples formatos (YYYY-MM-DD, MM/DD/YYYY, epoch). amount tiene comas como separador decimal en algunos registros.', type:'code', minWords:50 }
+    ]
+  },
+  {
+    id:'modeling', label:'Modelado', weight:20, fabric:false,
+    questions:[
+      { id:'q3', points:10, text:'Diseña un modelo dimensional (esquema estrella o copo de nieve) para e-commerce. Define tablas de hechos y dimensiones, claves, granularidad y tipo de SCD para las dimensiones que lo requieran.', context:'Entidades: Clientes, Productos, Vendedores, Pedidos, Envíos. Los precios de productos cambian con el tiempo. Los clientes pueden cambiar de región.', type:'text', minWords:100 },
+      { id:'q4', points:10, text:'¿Cuál es la diferencia entre una tabla de hechos de transacciones y una de snapshots periódicos? Da un ejemplo concreto de cuándo usar cada una y describe las implicaciones de almacenamiento.', context:null, type:'text', minWords:60 }
+    ]
+  },
+  {
+    id:'sql', label:'SQL Avanzado', weight:25, fabric:false,
+    questions:[
+      { id:'q5', points:12, text:'Dado el siguiente esquema, escribe una query que calcule el top 3 productos más vendidos por región en el último trimestre, incluyendo % de participación sobre el total de ventas y el ranking anterior para comparar cambios.', context:'TABLES: orders(order_id, date, region, total), order_items(order_id, product_id, qty, unit_price), products(product_id, name, category). Usa funciones de ventana.', type:'code', minWords:40 },
+      { id:'q6', points:13, text:'Optimiza la siguiente query y explica cada decisión: "SELECT * FROM orders o JOIN customers c ON o.cust_id = c.id WHERE YEAR(o.date) = 2024 AND c.country IN (SELECT country FROM vip_countries) ORDER BY o.total DESC"', context:'orders: 50M filas, customers: 2M filas, vip_countries: 15 filas. Sin índices. Motor: PostgreSQL.', type:'text', minWords:80 }
+    ]
+  },
+  {
+    id:'bi', label:'Power BI / BI', weight:15, fabric:false,
+    questions:[
+      { id:'q7', points:8, text:'Escribe la fórmula DAX para calcular el "Rolling 12-Month Revenue" (suma móvil de 12 meses) y explica línea por línea qué hace cada parte de la expresión.', context:'Tienes una tabla Fact_Sales con columnas: Date, Revenue. Y una tabla de calendario Date_Table con columna Date marcada como tabla de fechas.', type:'code', minWords:40 },
+      { id:'q8', points:7, text:'Un stakeholder te pide un dashboard de KPIs. ¿Qué preguntas harías antes de diseñarlo? Describe tu proceso para definir métricas, jerarquía visual y elección de visualizaciones correctas.', context:null, type:'text', minWords:70 }
+    ]
+  },
+  {
+    id:'architecture', label:'Arquitectura', weight:20, fabric:false,
+    questions:[
+      { id:'q9', points:10, text:'Una empresa procesa 10TB de datos diarios desde 20 fuentes distintas (APIs, SFTP, CDC de bases de datos). Diseña la arquitectura del Data Lake/Lakehouse incluyendo capas, herramientas, estrategia de particionado y catálogo de datos.', context:'Presupuesto: $15K/mes en AWS. Equipo: 3 data engineers. Latencia requerida: análisis D+1 para reportes, near-realtime para alertas.', type:'text', minWords:120 },
+      { id:'q10', points:10, text:'Explica qué es Data Lineage, por qué es crítico en una arquitectura moderna, cómo lo implementarías y qué herramientas usarías. Incluye un caso donde la falta de lineage causó un problema real.', context:null, type:'text', minWords:80 }
+    ]
+  },
+  {
+    id:'fabric', label:'Microsoft Fabric', weight:10, fabric:true,
+    questions:[
+      { id:'q11', points:4, tag:'ARQUITECTURA', text:'Explica la arquitectura de Microsoft Fabric: qué es OneLake, cómo se relaciona con las experiencias integradas (Data Engineering, Data Warehouse, Data Science, Real-Time Intelligence, Power BI) y qué ventaja tiene sobre tener herramientas separadas (Azure Data Factory + Synapse + Power BI).', context:'Contexto empresa: actualmente usan SQL Server 2019 on-premise + SSIS para ETLs + SSRS para reportes + Analysis Services (tabular) para modelos semánticos. Tienen 3TB de datos históricos.', type:'text', minWords:90 },
+      { id:'q12', points:3, tag:'MIGRACIÓN', text:'Diseña el plan de migración de los ETLs en SSIS a Microsoft Fabric. ¿Qué herramienta de Fabric usarías para reemplazar SSIS (Data Pipeline o Spark Notebooks)? ¿Cuándo usarías una u otra? Describe las fases de la migración y los riesgos principales.', context:'Los SSIS packages actuales incluyen: transformaciones complejas en Script Task (C#), conexiones a 8 fuentes heterogéneas (Oracle, flat files, REST APIs, SAP), y cargas incrementales con lógica de merge personalizada. El equipo no tiene experiencia en Python/Spark.', type:'text', minWords:100 },
+      { id:'q13', points:3, tag:'LAKEHOUSE', text:'Describe cómo migrarías el modelo semántico de Analysis Services (SSAS Tabular) a Microsoft Fabric. ¿Qué es un Lakehouse vs un Warehouse en Fabric? ¿Cuándo usarías Delta Tables en el Lakehouse vs SQL Tables en el Warehouse? Incluye la estrategia para los reportes de SSRS.', context:'El modelo SSAS tiene 15 medidas en DAX, 3 tablas de hechos (50M+ filas cada una), dimensiones con jerarquías multinivel y seguridad a nivel de fila (RLS) por departamento. Los reportes SSRS son consumidos por 200 usuarios en la intranet.', type:'text', minWords:100 }
+    ]
+  }
+];
+
+let currentSection=0, answers={}, aiEvents=[], startTime=null, timerInterval=null, tabSwitchCount=0;
+let candidateInfo={}, typingMetrics={};
+
+function startAssessment(){
+  const name=document.getElementById('cand-name').value.trim();
+  const exp=document.getElementById('cand-exp').value.trim();
+  const role=document.getElementById('cand-role').value.trim();
+  if(!name){alert('Por favor ingresa tu nombre completo');return;}
+  candidateInfo={name,exp,role};
+  startTime=Date.now();
+  document.getElementById('start-screen').classList.add('hidden');
+  document.getElementById('assessment-screen').classList.remove('hidden');
+  setupVisibilityDetection();
+  startTimer(105*60);
+  renderSectionNav();
+  renderSection(0);
+}
+
+function startTimer(seconds){
+  let remaining=seconds;
+  timerInterval=setInterval(()=>{
+    remaining--;
+    const m=Math.floor(remaining/60).toString().padStart(2,'0');
+    const s=(remaining%60).toString().padStart(2,'0');
+    document.getElementById('timer').textContent=m+':'+s;
+    if(remaining<=300)document.getElementById('timer').style.color='#ff4444';
+    if(remaining<=0){clearInterval(timerInterval);finishAssessment();}
+  },1000);
+}
+
+function setupVisibilityDetection(){
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){
+      tabSwitchCount++;
+      const sev=tabSwitchCount>=5?'high':tabSwitchCount>=3?'medium':'low';
+      logAiEvent(sev,`CAMBIO DE PESTAÑA/VENTANA #${tabSwitchCount} a las ${getElapsed()}`);
+    }
+  });
+  document.addEventListener('contextmenu',e=>{e.preventDefault();logAiEvent('low',`Clic derecho bloqueado a las ${getElapsed()}`);});
+}
+
+function logAiEvent(sev,msg){aiEvents.push({sev,msg,time:new Date().toISOString()});}
+
+function getElapsed(){
+  if(!startTime)return'00:00';
+  const e=Math.floor((Date.now()-startTime)/1000);
+  return Math.floor(e/60).toString().padStart(2,'0')+':'+(e%60).toString().padStart(2,'0');
+}
+
+function renderSectionNav(){
+  const nav=document.getElementById('section-nav');
+  nav.innerHTML=SECTIONS.map((s,i)=>
+    `<button class="sec-btn ${s.fabric?'fabric-btn':''} ${i===currentSection?'active':''}" onclick="jumpSection(${i})">${s.label}</button>`
+  ).join('');
+}
+
+function renderSection(idx){
+  currentSection=idx;
+  const sec=SECTIONS[idx];
+  SECTIONS.forEach((_,i)=>{
+    const el=document.getElementById('ps-'+i);
+    if(el)el.className='prog-step'+(i<idx?' done':i===idx?' active':'');
+  });
+  document.getElementById('section-indicator').textContent=`Sección ${idx+1} de ${SECTIONS.length} · ${sec.weight}pts`;
+  const nb=document.getElementById('next-btn');
+  nb.textContent=idx===SECTIONS.length-1?'Finalizar ✓':'Siguiente →';
+  nb.className=sec.fabric?'btn-fabric':(idx===SECTIONS.length-1?'btn-primary':'btn-primary');
+  
+  const container=document.getElementById('questions-container');
+  const fabricBadge=sec.fabric?`<div class="fabric-badge" style="font-family:'Courier New',monospace;"><i class="ti ti-hexagon" style="font-size:16px;" aria-hidden="true"></i> Microsoft Fabric — Sección Especializada</div>`:'';
+  
+  container.innerHTML=`
+    <div style="margin-bottom:1rem;">
+      ${fabricBadge}
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:4px;">SECCIÓN ${idx+1}</div>
+      <div style="font-size:17px;font-weight:600;color:var(--color-text-primary);">${sec.label}</div>
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-top:2px;">${sec.weight} puntos · ${sec.questions.length} preguntas${sec.fabric?' · Evaluación especializada on-premise → Fabric':''}</div>
+    </div>
+    ${sec.questions.map(q=>renderQuestion(q,sec.fabric)).join('')}
+  `;
+  sec.questions.forEach(q=>setupQuestionMonitoring(q));
+  renderSectionNav();
+}
+
+function renderQuestion(q,isFabric){
+  const saved=answers[q.id]||'';
+  const wc=saved.trim().split(/\s+/).filter(w=>w).length;
+  const tagHtml=q.tag?`<span class="q-tag">${q.tag}</span>`:'';
+  return `
+    <div class="question-card ${isFabric?'fabric-card':''}">
+      <div class="q-header">
+        <div><span class="q-num">Pregunta ${q.id.replace('q','')}</span>${tagHtml}</div>
+        <span class="q-points ${isFabric?'fabric-pts':''}">${q.points} PTS</span>
+      </div>
+      <div class="q-text">${q.text}</div>
+      ${q.context?`<div class="q-context">Contexto: ${q.context}</div>`:''}
+      <div class="answer-area">
+        <textarea class="answer-textarea" id="ans-${q.id}"
+          placeholder="${q.type==='code'?'// Escribe tu código aquí...':'Escribe tu respuesta aquí...'}"
+          oninput="onAnswerChange('${q.id}',this.value,${q.minWords})"
+          onpaste="onPaste('${q.id}',event)"
+        >${saved}</textarea>
+        <div class="answer-metrics" id="metrics-${q.id}">
+          <span class="metric-pill" id="wc-${q.id}">Palabras: ${wc}</span>
+          <span class="metric-pill" id="rhythm-${q.id}">Ritmo: calculando</span>
+          <span class="metric-pill" id="paste-${q.id}">Paste: 0x</span>
+        </div>
+        <div class="suspicion-banner" id="suspicion-${q.id}"></div>
+      </div>
+    </div>
+  `;
+}
+
+function setupQuestionMonitoring(q){
+  const ta=document.getElementById('ans-'+q.id);
+  if(!ta)return;
+  if(!typingMetrics[q.id])typingMetrics[q.id]={keystrokes:0,pauseCount:0,lastKey:Date.now(),pasteCount:0,bigPasteCount:0,suspicionScore:0};
+  ta.addEventListener('keydown',()=>{
+    const m=typingMetrics[q.id];
+    const now=Date.now();
+    const gap=now-m.lastKey;
+    if(gap>2000&&m.keystrokes>5)m.pauseCount++;
+    m.lastKey=now; m.keystrokes++;
+  });
+}
+
+function onPaste(qid,event){
+  const m=typingMetrics[qid]||(typingMetrics[qid]={pasteCount:0,bigPasteCount:0,suspicionScore:0});
+  const pasted=(event.clipboardData||window.clipboardData).getData('text');
+  const words=pasted.trim().split(/\s+/).filter(w=>w).length;
+  m.pasteCount=(m.pasteCount||0)+1;
+  document.getElementById('paste-'+qid).textContent=`Paste: ${m.pasteCount}x`;
+  if(words>30){
+    m.bigPasteCount=(m.bigPasteCount||0)+1;
+    m.suspicionScore=(m.suspicionScore||0)+(words>100?50:25);
+    const sev=words>100?'high':'medium';
+    logAiEvent(sev,`PASTE MASIVO en P${qid.replace('q','')} (${words} palabras) a las ${getElapsed()}`);
+    if(m.suspicionScore>=50){
+      const b=document.getElementById('suspicion-'+qid);
+      b.style.display='block';
+      b.textContent=`ALERTA: Se detectó contenido pegado (${words} palabras). Este evento fue registrado.`;
+      document.getElementById('paste-'+qid).className='metric-pill danger';
+    }
+  }
+}
+
+function onAnswerChange(qid,val,minWords){
+  answers[qid]=val;
+  const words=val.trim().split(/\s+/).filter(w=>w).length;
+  const wcEl=document.getElementById('wc-'+qid);
+  if(wcEl){wcEl.textContent=`Palabras: ${words}`;wcEl.className='metric-pill'+(words>=minWords?'':' warn');}
+  const m=typingMetrics[qid];
+  if(m&&m.keystrokes>0){
+    const ratio=words/Math.max(m.keystrokes,1);
+    const rEl=document.getElementById('rhythm-'+qid);
+    if(rEl){
+      if(ratio>0.8){rEl.textContent='Ritmo anómalo';rEl.className='metric-pill warn';if(ratio>1.2)logAiEvent('medium',`Ritmo anómalo en P${qid.replace('q','')} (ratio ${ratio.toFixed(2)}) a las ${getElapsed()}`);}
+      else{rEl.textContent='Ritmo: normal';rEl.className='metric-pill';}
+    }
+  }
+}
+
+function jumpSection(idx){saveCurrentAnswers();renderSection(idx);}
+function nextSection(){saveCurrentAnswers();if(currentSection>=SECTIONS.length-1){finishAssessment();return;}renderSection(currentSection+1);}
+function prevSection(){saveCurrentAnswers();if(currentSection>0)renderSection(currentSection-1);}
+
+function saveCurrentAnswers(){
+  SECTIONS[currentSection].questions.forEach(q=>{const ta=document.getElementById('ans-'+q.id);if(ta)answers[q.id]=ta.value;});
+}
+
+function calculateScores(){
+  const scores={};
+  SECTIONS.forEach(sec=>{
+    let earned=0;
+    sec.questions.forEach(q=>{
+      const ans=(answers[q.id]||'').trim();
+      const words=ans.split(/\s+/).filter(w=>w).length;
+      const ratio=Math.min(words/q.minWords,1);
+      const m=typingMetrics[q.id]||{};
+      const pasteScore=Math.max(0,1-(m.bigPasteCount||0)*0.3);
+      earned+=Math.round(q.points*ratio*pasteScore);
+    });
+    scores[sec.id]={earned,max:sec.weight,label:sec.label,fabric:sec.fabric};
+  });
+  return scores;
+}
+
+function finishAssessment(){
+  clearInterval(timerInterval);
+  saveCurrentAnswers();
+  document.getElementById('assessment-screen').classList.add('hidden');
+  document.getElementById('result-screen').classList.remove('hidden');
+  
+  const scores=calculateScores();
+  const total=Object.values(scores).reduce((a,s)=>a+s.earned,0);
+  const coreTotal=Object.values(scores).filter(s=>!s.fabric).reduce((a,s)=>a+s.earned,0);
+  const fabricTotal=scores['fabric']?scores['fabric'].earned:0;
+  
+  document.getElementById('total-score').textContent=`${total}/110`;
+  
+  let verdict;
+  if(coreTotal>=80&&fabricTotal>=8)verdict='APROBADO — Arquitecto Fabric Senior Calificado';
+  else if(coreTotal>=80&&fabricTotal>=5)verdict='APROBADO — Perfil Senior sólido, conocimiento Fabric intermedio';
+  else if(coreTotal>=80)verdict='APROBADO — Requiere capacitación en Fabric antes del rol';
+  else if(coreTotal>=60)verdict='APROBADO CON RESERVAS — Requiere entrevista técnica adicional';
+  else verdict='NO APROBADO — Experiencia insuficiente para el rol';
+  
+  document.getElementById('result-verdict').textContent=verdict;
+  
+  const coreGrid=document.getElementById('score-grid-core');
+  coreGrid.innerHTML=Object.values(scores).filter(s=>!s.fabric).map(s=>`
+    <div class="score-card">
+      <div class="sc-val">${s.earned}/${s.max}</div>
+      <div class="sc-label">${s.label}</div>
+    </div>
+  `).join('');
+  
+  const fabricGrid=document.getElementById('score-grid-fabric');
+  if(scores['fabric']){
+    const qs=SECTIONS[5].questions;
+    fabricGrid.innerHTML=qs.map(q=>{
+      const ans=(answers[q.id]||'').trim();
+      const words=ans.split(/\s+/).filter(w=>w).length;
+      const ratio=Math.min(words/q.minWords,1);
+      const m=typingMetrics[q.id]||{};
+      const pScore=Math.max(0,1-(m.bigPasteCount||0)*0.3);
+      const earned=Math.round(q.points*ratio*pScore);
+      return `<div class="score-card fabric-sc"><div class="sc-val" style="color:#4fc3f7;">${earned}/${q.points}</div><div class="sc-label">${q.tag||'Fabric'}</div></div>`;
+    }).join('');
+  }
+  
+  const evList=document.getElementById('ai-events-list');
+  evList.innerHTML=aiEvents.length===0
+    ?'<div style="font-size:12px;color:var(--color-text-secondary);">Sin eventos sospechosos detectados.</div>'
+    :aiEvents.map(e=>`<div class="ai-event ${e.sev}">[${e.sev.toUpperCase()}] ${e.msg}</div>`).join('');
+  
+  window._finalScores=scores; window._totalScore=total; window._verdict=verdict;
+}
+
+function downloadReport(){
+  const scores=window._finalScores||{};
+  const total=window._totalScore||0;
+  let r=`================================================================================\nREPORTE DE EVALUACIÓN TÉCNICA — DATA ARCHITECT + MICROSOFT FABRIC\n================================================================================\nGenerado: ${new Date().toLocaleString('es-SV')}\n\nCANDIDATO\n------------------------------------------------------------\nNombre: ${candidateInfo.name||'-'}\nExperiencia: ${candidateInfo.exp||'-'}\nPuesto actual: ${candidateInfo.role||'-'}\n\nPUNTUACIÓN FINAL: ${total}/110\nVEREDICTO: ${window._verdict||'--'}\n\nDESGLOSE POR SECCIÓN\n------------------------------------------------------------\n`;
+  Object.values(scores).forEach(s=>{r+=`${(s.fabric?'[FABRIC] ':'')}${s.label.padEnd(30)} ${s.earned}/${s.max} pts\n`;});
+  r+=`\nRESPUESTAS\n------------------------------------------------------------\n`;
+  SECTIONS.forEach((sec,si)=>{
+    r+=`\n--- SECCIÓN ${si+1}: ${sec.label.toUpperCase()}${sec.fabric?' [MICROSOFT FABRIC]':''} ---\n\n`;
+    sec.questions.forEach(q=>{
+      const ans=answers[q.id]||'[Sin respuesta]';
+      const words=ans.trim().split(/\s+/).filter(w=>w).length;
+      const m=typingMetrics[q.id]||{};
+      r+=`P${q.id.replace('q','')}${q.tag?` [${q.tag}]`:''}) ${q.text}\n`;
+      r+=`[Palabras: ${words} | Pastes: ${m.pasteCount||0} | Pastes masivos: ${m.bigPasteCount||0}]\n`;
+      r+=`RESPUESTA:\n${ans}\n\n`;
+    });
+  });
+  r+=`\nREPORTE DE COMPORTAMIENTO\n------------------------------------------------------------\nCambios de pestaña: ${tabSwitchCount}\n\n`;
+  if(aiEvents.length===0){r+='Sin eventos sospechosos.\n';}
+  else{aiEvents.forEach(e=>{r+=`[${e.sev.toUpperCase()}] ${e.msg}\n  Timestamp: ${e.time}\n`;});}
+  r+=`\n================================================================================\nFIN DEL REPORTE\n================================================================================`;
+  
+  const blob=new Blob([r],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  const safe=(candidateInfo.name||'candidato').replace(/\s+/g,'_');
+  a.download=`evaluacion_fabric_${safe}_${new Date().toISOString().split('T')[0]}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
