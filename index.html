@@ -7,463 +7,204 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  // ═══════════════════════════════════════════════════════
-  // CONFIGURA TUS CREDENCIALES DE EMAILJS AQUÍ
-  // ═══════════════════════════════════════════════════════
-  const EMAILJS_PUBLIC_KEY  = 'U2PHJPso2q8EizWUS';   // Account → API Keys
-  const EMAILJS_SERVICE_ID  = 'service_gosbiwj';   // Email Services
-  const EMAILJS_TEMPLATE_ID = 'template_i67vcul';  // Email Templates
-  // ═══════════════════════════════════════════════════════
+  const EMAILJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';
+  const EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';
+  const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';
   (function(){ emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); })();
 </script>
 <style>
 :root {
-  --azul:    #003A84;
-  --azul-dk: #002460;
-  --azul-lt: #E8EFF9;
-  --amarillo:#FFCE00;
-  --celeste: #5CA2F8;
-  --celeste-lt: #EAF2FF;
-  --blanco:  #FFFFFF;
-  --gris-50: #F8F9FC;
-  --gris-100:#EEF1F7;
-  --gris-200:#D8DDE8;
-  --gris-400:#96A0B5;
-  --gris-600:#5A6478;
-  --gris-800:#2C3345;
-  --negro:   #111827;
-  --font-display: 'Barlow Condensed', sans-serif;
-  --font-body:    'Barlow', sans-serif;
-  --font-mono:    'JetBrains Mono', monospace;
-  --shadow-sm: 0 1px 3px rgba(0,58,132,.08), 0 1px 2px rgba(0,58,132,.05);
-  --shadow-md: 0 4px 16px rgba(0,58,132,.10), 0 2px 6px rgba(0,58,132,.07);
-  --shadow-lg: 0 8px 32px rgba(0,58,132,.13), 0 4px 12px rgba(0,58,132,.08);
+  --azul:#003A84; --azul-dk:#002460; --azul-lt:#E8EFF9;
+  --amarillo:#FFCE00; --celeste:#5CA2F8; --celeste-lt:#EAF2FF;
+  --blanco:#FFFFFF; --gris-50:#F8F9FC; --gris-100:#EEF1F7;
+  --gris-200:#D8DDE8; --gris-400:#96A0B5; --gris-600:#5A6478; --gris-800:#2C3345;
+  --font-d:'Barlow Condensed',sans-serif;
+  --font-b:'Barlow',sans-serif;
+  --font-m:'JetBrains Mono',monospace;
+  --sh-sm:0 1px 3px rgba(0,58,132,.08),0 1px 2px rgba(0,58,132,.05);
+  --sh-md:0 4px 16px rgba(0,58,132,.10),0 2px 6px rgba(0,58,132,.07);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{
-  font-family: var(--font-body);
-  background: var(--gris-50);
-  color: var(--gris-800);
-  min-height:100vh;
-  font-size:15px;
-  line-height:1.6;
-}
-
-/* ── TOP STRIPE ── */
+body{font-family:var(--font-b);background:var(--gris-50);color:var(--gris-800);min-height:100vh;font-size:15px;line-height:1.6;}
 .stripe{height:4px;background:linear-gradient(90deg,var(--azul) 0%,var(--celeste) 60%,var(--amarillo) 100%);}
 
-/* ── HEADER ── */
-.site-header{
-  background:var(--azul);
-  padding:0 2rem;
-  display:flex;align-items:center;justify-content:space-between;
-  height:64px;
-  box-shadow:0 2px 16px rgba(0,0,0,.18);
-  position:sticky;top:4px;z-index:100;
-}
+/* HEADER */
+.site-header{background:var(--azul);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;box-shadow:0 2px 16px rgba(0,0,0,.18);position:sticky;top:4px;z-index:100;}
 .header-brand{display:flex;align-items:center;gap:14px;}
-.brand-mark{
-  width:36px;height:36px;
-  background:var(--amarillo);
-  border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-display);
-  font-weight:800;font-size:18px;
-  color:var(--azul);
-  letter-spacing:-1px;
-  flex-shrink:0;
-}
-.brand-text{color:var(--blanco);}
-.brand-text .title{font-family:var(--font-display);font-weight:700;font-size:17px;letter-spacing:.5px;}
-.brand-text .sub{font-size:11px;opacity:.65;letter-spacing:1.5px;text-transform:uppercase;margin-top:-2px;}
-.header-timer{
-  display:flex;align-items:center;gap:10px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:8px;
-  padding:6px 14px;
-}
+.brand-mark{width:36px;height:36px;background:var(--amarillo);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:800;font-size:18px;color:var(--azul);letter-spacing:-1px;}
+.brand-text .title{font-family:var(--font-d);font-weight:700;font-size:17px;letter-spacing:.5px;color:var(--blanco);}
+.brand-text .sub{font-size:11px;opacity:.65;letter-spacing:1.5px;text-transform:uppercase;margin-top:-2px;color:var(--blanco);}
+.header-timer{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:6px 14px;}
 .timer-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.55);}
-.timer-val{font-family:var(--font-mono);font-size:20px;font-weight:500;color:var(--amarillo);letter-spacing:2px;}
+.timer-val{font-family:var(--font-m);font-size:20px;font-weight:500;color:var(--amarillo);letter-spacing:2px;}
 .timer-val.danger{color:#FF6B6B;}
 
-/* ── MAIN LAYOUT ── */
+/* MAIN */
 .main{max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem;}
 
-/* ── SECTION PROGRESS ── */
-.progress-nav{
-  display:flex;gap:4px;
-  background:var(--blanco);
-  border:1px solid var(--gris-200);
-  border-radius:10px;
-  padding:6px;
-  margin-bottom:1.5rem;
-  box-shadow:var(--shadow-sm);
-}
-.pnav-item{
-  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:7px 4px;border-radius:7px;cursor:pointer;
-  transition:all .2s;gap:3px;
-  border:1.5px solid transparent;
-}
+/* PROGRESS NAV */
+.progress-nav{display:flex;gap:4px;background:var(--blanco);border:1px solid var(--gris-200);border-radius:10px;padding:6px;margin-bottom:1.5rem;box-shadow:var(--sh-sm);}
+.pnav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:7px 4px;border-radius:7px;cursor:pointer;transition:all .2s;gap:3px;border:1.5px solid transparent;}
 .pnav-item:hover{background:var(--azul-lt);border-color:var(--celeste);}
-.pnav-item.active{background:var(--azul);border-color:var(--azul);}
+.pnav-item.active{background:var(--azul);}
 .pnav-item.done{background:var(--celeste-lt);border-color:var(--celeste);}
-.pnav-item.fabric-item.active{background:linear-gradient(135deg,var(--azul),var(--celeste));}
-.pnav-num{
-  font-family:var(--font-display);font-weight:700;font-size:13px;
-  color:var(--gris-400);
-  transition:color .2s;
-}
+.pnav-item.fab-item.active{background:linear-gradient(135deg,var(--azul),var(--celeste));}
+.pnav-num{font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--gris-400);}
 .pnav-item.active .pnav-num{color:var(--amarillo);}
 .pnav-item.done .pnav-num{color:var(--celeste);}
-.pnav-label{font-size:9px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--gris-400);text-align:center;line-height:1.2;transition:color .2s;}
+.pnav-label{font-size:9px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--gris-400);text-align:center;line-height:1.2;}
 .pnav-item.active .pnav-label{color:rgba(255,255,255,.8);}
 .pnav-item.done .pnav-label{color:var(--azul);}
-.pnav-dot{width:6px;height:6px;border-radius:50%;background:var(--gris-200);transition:background .2s;}
+.pnav-dot{width:6px;height:6px;border-radius:50%;background:var(--gris-200);}
 .pnav-item.active .pnav-dot{background:var(--amarillo);}
 .pnav-item.done .pnav-dot{background:var(--celeste);}
 
-/* ── SECTION HEADER ── */
-.section-header{
-  display:flex;align-items:flex-start;justify-content:space-between;
-  background:var(--blanco);
-  border:1px solid var(--gris-200);
-  border-radius:10px;
-  padding:1.25rem 1.5rem;
-  margin-bottom:1.25rem;
-  box-shadow:var(--shadow-sm);
-}
-.section-header.fabric-header{
-  background:linear-gradient(135deg,var(--azul) 0%,#0052B4 100%);
-  border-color:var(--azul);
-}
-.sh-left{}
-.sh-eyebrow{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--celeste);margin-bottom:4px;}
-.fabric-header .sh-eyebrow{color:var(--celeste);}
-.sh-title{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--azul);}
-.fabric-header .sh-title{color:var(--blanco);}
+/* SECTION HEADER */
+.sec-header{display:flex;align-items:flex-start;justify-content:space-between;background:var(--blanco);border:1px solid var(--gris-200);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.25rem;box-shadow:var(--sh-sm);}
+.sec-header.fab-hdr{background:linear-gradient(135deg,var(--azul) 0%,#0052B4 100%);border-color:var(--azul);}
+.sh-eye{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--celeste);margin-bottom:4px;}
+.sh-title{font-family:var(--font-d);font-weight:700;font-size:22px;color:var(--azul);}
+.fab-hdr .sh-title{color:var(--blanco);}
+.fab-hdr .sh-eye{color:var(--celeste);}
 .sh-sub{font-size:13px;color:var(--gris-400);margin-top:2px;}
-.fabric-header .sh-sub{color:rgba(255,255,255,.6);}
-.sh-badge{
-  background:var(--azul);color:var(--blanco);
-  font-family:var(--font-mono);font-weight:500;font-size:15px;
-  padding:8px 14px;border-radius:7px;
-  text-align:center;white-space:nowrap;
-  box-shadow:var(--shadow-sm);
-}
-.fabric-header .sh-badge{background:var(--amarillo);color:var(--azul);}
+.fab-hdr .sh-sub{color:rgba(255,255,255,.6);}
+.sh-badge{background:var(--azul);color:var(--blanco);font-family:var(--font-m);padding:8px 14px;border-radius:7px;text-align:center;white-space:nowrap;}
+.fab-hdr .sh-badge{background:var(--amarillo);color:var(--azul);}
 .sh-badge .pts{font-size:22px;font-weight:700;display:block;line-height:1;}
-.sh-badge .ptslabel{font-size:10px;opacity:.7;letter-spacing:1px;}
+.sh-badge .ptsl{font-size:10px;opacity:.7;letter-spacing:1px;}
 
-/* ── QUESTION CARD ── */
-.q-card{
-  background:var(--blanco);
-  border:1px solid var(--gris-200);
-  border-radius:10px;
-  padding:1.25rem 1.5rem;
-  margin-bottom:1rem;
-  box-shadow:var(--shadow-sm);
-  transition:border-color .2s, box-shadow .2s;
-}
-.q-card:focus-within{border-color:var(--celeste);box-shadow:var(--shadow-md);}
-.q-card.fabric-q{border-left:3px solid var(--celeste);}
+/* QUESTION CARD */
+.q-card{background:var(--blanco);border:1px solid var(--gris-200);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1rem;box-shadow:var(--sh-sm);transition:border-color .2s,box-shadow .2s;}
+.q-card:focus-within{border-color:var(--celeste);box-shadow:var(--sh-md);}
+.q-card.fab-q{border-left:3px solid var(--celeste);}
 .q-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
-.q-num{
-  font-family:var(--font-display);font-weight:700;font-size:12px;
-  letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--azul);
-  background:var(--azul-lt);
-  padding:3px 9px;border-radius:4px;
-}
-.q-tag{
-  font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
-  padding:3px 9px;border-radius:4px;
-  background:var(--celeste-lt);color:#0052B4;
-}
-.q-pts{
-  margin-left:auto;
-  font-family:var(--font-mono);font-size:12px;font-weight:500;
-  color:var(--blanco);
-  background:var(--azul);
-  padding:3px 10px;border-radius:4px;
-  letter-spacing:.5px;
-}
-.q-fabric .q-pts{background:var(--celeste);}
-.q-text{font-size:14px;line-height:1.65;color:var(--gris-800);margin-bottom:10px;font-weight:400;}
-.q-context{
-  font-family:var(--font-mono);font-size:11.5px;
-  background:var(--gris-50);
-  border-left:3px solid var(--celeste);
-  padding:10px 12px;
-  border-radius:0 6px 6px 0;
-  color:var(--gris-600);
-  line-height:1.6;
-  margin-bottom:10px;
-}
-.q-textarea{
-  width:100%;min-height:150px;
-  padding:12px;
-  font-family:var(--font-mono);font-size:12.5px;
-  border:1.5px solid var(--gris-200);
-  border-radius:7px;
-  background:var(--blanco);
-  color:var(--gris-800);
-  resize:vertical;line-height:1.6;
-  transition:border-color .2s,box-shadow .2s;
-}
+.q-num{font-family:var(--font-d);font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--azul);background:var(--azul-lt);padding:3px 9px;border-radius:4px;}
+.q-tag{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:3px 9px;border-radius:4px;background:var(--celeste-lt);color:#0052B4;}
+.q-pts{margin-left:auto;font-family:var(--font-m);font-size:12px;font-weight:500;color:var(--blanco);background:var(--azul);padding:3px 10px;border-radius:4px;}
+.q-pts.fab{background:var(--celeste);}
+.q-text{font-size:14px;line-height:1.65;color:var(--gris-800);margin-bottom:10px;}
+.q-ctx{font-family:var(--font-m);font-size:11.5px;background:var(--gris-50);border-left:3px solid var(--celeste);padding:10px 12px;border-radius:0 6px 6px 0;color:var(--gris-600);line-height:1.6;margin-bottom:10px;}
+.q-textarea{width:100%;min-height:150px;padding:12px;font-family:var(--font-m);font-size:12.5px;border:1.5px solid var(--gris-200);border-radius:7px;background:var(--blanco);color:var(--gris-800);resize:vertical;line-height:1.6;transition:border-color .2s;}
 .q-textarea:focus{outline:none;border-color:var(--celeste);box-shadow:0 0 0 3px rgba(92,162,248,.12);}
-.q-metrics{display:flex;gap:8px;margin-top:7px;flex-wrap:wrap;align-items:center;}
-.metric{
-  font-size:10px;font-weight:500;letter-spacing:.5px;
-  padding:3px 9px;border-radius:10px;
-  background:var(--gris-100);color:var(--gris-600);
-  border:1px solid var(--gris-200);
-}
-.metric.warn{background:#FFFBEB;color:#92400E;border-color:#FCD34D;}
-.metric.danger{background:#FEF2F2;color:#991B1B;border-color:#FCA5A5;}
-.metric.ok{background:#F0FDF4;color:#166534;border-color:#86EFAC;}
-.suspicion-banner{
-  display:none;margin-top:8px;padding:10px 14px;
-  background:#FFF8E1;border:1px solid var(--amarillo);
-  border-radius:6px;font-size:12px;color:#854D0E;
-  font-family:var(--font-mono);
-  border-left:4px solid var(--amarillo);
-}
+.q-metrics{display:flex;gap:8px;margin-top:7px;flex-wrap:wrap;}
+.met{font-size:10px;font-weight:500;letter-spacing:.5px;padding:3px 9px;border-radius:10px;background:var(--gris-100);color:var(--gris-600);border:1px solid var(--gris-200);}
+.met.warn{background:#FFFBEB;color:#92400E;border-color:#FCD34D;}
+.met.ok{background:#F0FDF4;color:#166534;border-color:#86EFAC;}
+.met.danger{background:#FEF2F2;color:#991B1B;border-color:#FCA5A5;}
+.sus-banner{display:none;margin-top:8px;padding:10px 14px;background:#FFF8E1;border:1px solid var(--amarillo);border-left:4px solid var(--amarillo);border-radius:6px;font-size:12px;color:#854D0E;font-family:var(--font-m);}
 
-/* ── START SCREEN ── */
-.start-screen{
-  background:var(--blanco);
-  border:1px solid var(--gris-200);
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:var(--shadow-md);
-}
-.start-hero{
-  background:linear-gradient(135deg, var(--azul) 0%, #0052B4 60%, var(--celeste) 100%);
-  padding:2.5rem 2rem;
-  position:relative;
-  overflow:hidden;
-}
-.start-hero::before{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-}
-.start-hero h1{
-  font-family:var(--font-display);font-weight:800;
-  font-size:36px;color:var(--blanco);
-  letter-spacing:.5px;line-height:1.1;
-  position:relative;
-}
+/* START SCREEN */
+.start-wrap{background:var(--blanco);border:1px solid var(--gris-200);border-radius:14px;overflow:hidden;box-shadow:var(--sh-md);}
+.start-hero{background:linear-gradient(135deg,var(--azul) 0%,#0052B4 60%,var(--celeste) 100%);padding:2.5rem 2rem;position:relative;overflow:hidden;}
+.start-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FFF' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E") repeat;}
+.start-hero h1{font-family:var(--font-d);font-weight:800;font-size:36px;color:var(--blanco);letter-spacing:.5px;line-height:1.1;position:relative;}
 .start-hero h1 span{color:var(--amarillo);}
 .start-hero p{color:rgba(255,255,255,.7);font-size:14px;margin-top:8px;position:relative;}
 .hero-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;position:relative;}
-.hero-chip{
-  font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
-  padding:4px 12px;border-radius:20px;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
-  color:rgba(255,255,255,.85);
-}
-.hero-chip.amarillo{background:rgba(255,206,0,.15);border-color:rgba(255,206,0,.4);color:var(--amarillo);}
-
+.chip{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);}
+.chip.am{background:rgba(255,206,0,.15);border-color:rgba(255,206,0,.4);color:var(--amarillo);}
 .start-body{padding:1.75rem 2rem;}
-.candidate-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:1.5rem;}
-.form-group label{
-  display:block;font-size:11px;font-weight:700;letter-spacing:1.2px;
-  text-transform:uppercase;color:var(--gris-600);margin-bottom:5px;
-}
-.form-group input{
-  width:100%;padding:10px 12px;font-size:14px;font-family:var(--font-body);
-  border:1.5px solid var(--gris-200);border-radius:7px;
-  background:var(--gris-50);color:var(--gris-800);
-  transition:border-color .2s,box-shadow .2s;
-}
-.form-group input:focus{outline:none;border-color:var(--celeste);box-shadow:0 0 0 3px rgba(92,162,248,.12);background:var(--blanco);}
-
-.notice{
-  padding:12px 16px;border-radius:8px;font-size:13px;line-height:1.7;
-  margin-bottom:12px;border-left:4px solid;
-}
-.notice.azul{background:var(--azul-lt);border-color:var(--azul);color:var(--azul-dk);}
-.notice.warn{background:#FFFBEB;border-color:var(--amarillo);color:#854D0E;}
+.cand-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:1.5rem;}
+.fg label{display:block;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--gris-600);margin-bottom:5px;}
+.fg input{width:100%;padding:10px 12px;font-size:14px;font-family:var(--font-b);border:1.5px solid var(--gris-200);border-radius:7px;background:var(--gris-50);color:var(--gris-800);transition:border-color .2s;}
+.fg input:focus{outline:none;border-color:var(--celeste);box-shadow:0 0 0 3px rgba(92,162,248,.12);background:var(--blanco);}
+.notice{padding:12px 16px;border-radius:8px;font-size:13px;line-height:1.7;margin-bottom:12px;border-left:4px solid;}
+.notice.az{background:var(--azul-lt);border-color:var(--azul);color:var(--azul-dk);}
+.notice.wn{background:#FFFBEB;border-color:var(--amarillo);color:#854D0E;}
 .notice strong{font-weight:700;}
-
-.btn-start{
-  display:block;width:100%;
-  background:linear-gradient(90deg,var(--azul),#0052B4);
-  color:var(--blanco);
-  font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:2px;
-  text-transform:uppercase;
-  border:none;border-radius:8px;
-  padding:14px;
-  cursor:pointer;
-  transition:transform .15s, box-shadow .15s;
-  box-shadow:0 4px 14px rgba(0,58,132,.3);
-}
+.btn-start{display:block;width:100%;background:linear-gradient(90deg,var(--azul),#0052B4);color:var(--blanco);font-family:var(--font-d);font-weight:700;font-size:16px;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:8px;padding:14px;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 14px rgba(0,58,132,.3);}
 .btn-start:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,58,132,.38);}
-.btn-start:active{transform:translateY(0);}
 
-/* ── NAV ACTIONS ── */
-.nav-actions{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-top:1.25rem;gap:12px;
-}
-.nav-info{
-  font-size:12px;font-weight:600;letter-spacing:.5px;
-  color:var(--gris-600);
-}
-.btn-prev{
-  padding:9px 18px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  font-family:var(--font-display);
-  background:var(--blanco);color:var(--azul);
-  border:1.5px solid var(--gris-200);border-radius:7px;
-  cursor:pointer;transition:all .15s;
-}
+/* NAV ACTIONS */
+.nav-actions{display:flex;justify-content:space-between;align-items:center;margin-top:1.25rem;gap:12px;}
+.nav-info{font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--gris-600);}
+.btn-prev{padding:9px 18px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--font-d);background:var(--blanco);color:var(--azul);border:1.5px solid var(--gris-200);border-radius:7px;cursor:pointer;transition:all .15s;}
 .btn-prev:hover{border-color:var(--azul);background:var(--azul-lt);}
-.btn-next{
-  padding:9px 22px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  font-family:var(--font-display);
-  background:var(--azul);color:var(--blanco);
-  border:none;border-radius:7px;
-  cursor:pointer;transition:all .15s;
-  box-shadow:0 2px 8px rgba(0,58,132,.25);
-}
+.btn-next{padding:9px 22px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--font-d);background:var(--azul);color:var(--blanco);border:none;border-radius:7px;cursor:pointer;transition:all .15s;box-shadow:0 2px 8px rgba(0,58,132,.25);}
 .btn-next:hover{background:var(--azul-dk);}
-.btn-next.fabric{background:linear-gradient(90deg,var(--azul),var(--celeste));}
-.btn-next.finish{background:linear-gradient(90deg,#00843D,#00A84F);}
+.btn-next.fab{background:linear-gradient(90deg,var(--azul),var(--celeste));}
+.btn-next.fin{background:linear-gradient(90deg,#00843D,#00A84F);}
 
-/* ── RESULT SCREEN ── */
-.result-screen{background:var(--blanco);border:1px solid var(--gris-200);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-md);}
-.result-hero{
-  background:linear-gradient(135deg,var(--azul) 0%,var(--azul-dk) 100%);
-  padding:2rem;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
-}
-.result-hero-left h2{font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:4px;}
-.result-hero-left .final-score{font-family:var(--font-display);font-weight:800;font-size:52px;color:var(--blanco);line-height:1;}
-.result-hero-left .verdict{font-size:14px;color:var(--celeste);margin-top:6px;font-weight:500;}
-.result-hero-right{text-align:right;}
-.result-hero-right .verdict-chip{
-  display:inline-block;padding:8px 16px;border-radius:7px;
-  font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  background:var(--amarillo);color:var(--azul);
-}
-
-.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:1.5rem;border-bottom:1px solid var(--gris-100);}
-.score-card{
-  background:var(--gris-50);border:1px solid var(--gris-200);
-  border-radius:8px;padding:12px;text-align:center;
-}
-.score-card.fabric-sc{background:var(--celeste-lt);border-color:var(--celeste);}
-.score-card .sv{font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--azul);}
-.score-card.fabric-sc .sv{color:var(--celeste);}
-.score-card .sl{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gris-400);margin-top:2px;}
-.score-label-row{padding:.5rem 1.5rem 0;display:flex;align-items:center;gap:8px;}
-.score-label-row span{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gris-400);}
-.score-label-row .dot{width:8px;height:8px;border-radius:50%;background:var(--celeste);flex-shrink:0;}
-
-.ai-report{padding:1.25rem 1.5rem;}
-.ai-report h3{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gris-600);margin-bottom:.75rem;}
-.ai-event{
-  font-family:var(--font-mono);font-size:11px;
-  padding:5px 10px;margin-bottom:4px;
-  border-radius:4px;border-left:3px solid;
-}
-.ai-event.low{background:#FFFBEB;border-color:#FCD34D;color:#92400E;}
-.ai-event.medium{background:#FFF7ED;border-color:#FB923C;color:#9A3412;}
-.ai-event.high{background:#FEF2F2;border-color:#F87171;color:#991B1B;}
-.no-events{font-size:13px;color:var(--gris-400);font-style:italic;}
-
+/* RESULTS */
+.result-wrap{background:var(--blanco);border:1px solid var(--gris-200);border-radius:14px;overflow:hidden;box-shadow:var(--sh-md);}
+.result-hero{background:linear-gradient(135deg,var(--azul) 0%,var(--azul-dk) 100%);padding:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.rh-label{font-family:var(--font-d);font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;}
+.rh-score{font-family:var(--font-d);font-weight:800;font-size:52px;color:var(--blanco);line-height:1;}
+.rh-verdict{font-size:14px;color:var(--celeste);margin-top:6px;font-weight:500;}
+.verdict-chip{display:inline-block;padding:8px 16px;border-radius:7px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--amarillo);color:var(--azul);}
+.res-sec-ttl{padding:.75rem 1.5rem 0;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gris-400);display:flex;align-items:center;gap:8px;}
+.res-sec-ttl::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--celeste);}
+.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:.75rem 1.5rem;}
+.sc-card{background:var(--gris-50);border:1px solid var(--gris-200);border-radius:8px;padding:12px;text-align:center;}
+.sc-card.fab{background:var(--celeste-lt);border-color:var(--celeste);}
+.sc-val{font-family:var(--font-d);font-weight:700;font-size:26px;color:var(--azul);}
+.sc-card.fab .sc-val{color:#0052B4;}
+.sc-lbl{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gris-400);margin-top:2px;}
+.sc-pct{font-size:11px;color:var(--gris-600);margin-top:3px;font-family:var(--font-m);}
+.ai-report{padding:1.25rem 1.5rem;border-top:1px solid var(--gris-100);}
+.ai-report h3{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gris-600);margin-bottom:.75rem;}
+.ai-ev{font-family:var(--font-m);font-size:11px;padding:5px 10px;margin-bottom:4px;border-radius:4px;border-left:3px solid;}
+.ai-ev.low{background:#FFFBEB;border-color:#FCD34D;color:#92400E;}
+.ai-ev.medium{background:#FFF7ED;border-color:#FB923C;color:#9A3412;}
+.ai-ev.high{background:#FEF2F2;border-color:#F87171;color:#991B1B;}
+.no-ev{font-size:13px;color:var(--gris-400);font-style:italic;}
 .result-actions{padding:1.25rem 1.5rem;border-top:1px solid var(--gris-100);display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-dl{
-  padding:11px 28px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  font-family:var(--font-display);border:none;border-radius:8px;cursor:pointer;
-  transition:all .15s;
-}
-.btn-dl.primary{background:linear-gradient(90deg,var(--azul),#0052B4);color:var(--blanco);box-shadow:0 3px 12px rgba(0,58,132,.3);}
-.btn-dl.primary:hover{box-shadow:0 5px 18px rgba(0,58,132,.4);transform:translateY(-1px);}
-.btn-dl.secondary{background:var(--gris-100);color:var(--azul);border:1.5px solid var(--gris-200);}
-.btn-dl.secondary:hover{border-color:var(--azul);background:var(--azul-lt);}
-
-.email-status{
-  display:none;
-  font-family:var(--font-mono);font-size:12px;
-  padding:8px 16px;border-radius:6px;margin-top:8px;
-  text-align:center;
-}
-.email-status.sending{background:var(--azul-lt);color:var(--azul);}
-.email-status.ok{background:#F0FDF4;color:#166534;}
-.email-status.fail{background:#FEF2F2;color:#991B1B;}
-
-/* ── FOOTER ── */
-.site-footer{
-  border-top:3px solid;
-  border-image:linear-gradient(90deg,var(--azul),var(--celeste),var(--amarillo)) 1;
-  padding:1rem 2rem;
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--blanco);
-  font-size:11px;color:var(--gris-400);letter-spacing:.5px;
-  margin-top:3rem;
-}
-
+.btn-dl{padding:11px 28px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:var(--font-d);border:none;border-radius:8px;cursor:pointer;transition:all .15s;}
+.btn-dl.pri{background:linear-gradient(90deg,var(--azul),#0052B4);color:var(--blanco);box-shadow:0 3px 12px rgba(0,58,132,.3);}
+.btn-dl.pri:hover{box-shadow:0 5px 18px rgba(0,58,132,.4);transform:translateY(-1px);}
+.btn-dl.sec{background:var(--gris-100);color:var(--azul);border:1.5px solid var(--gris-200);}
+.btn-dl.sec:hover{border-color:var(--azul);background:var(--azul-lt);}
+.email-st{display:none;font-family:var(--font-m);font-size:12px;padding:8px 16px;border-radius:6px;text-align:center;margin:0 1.5rem .75rem;}
+.email-st.sending{background:var(--azul-lt);color:var(--azul);}
+.email-st.ok{background:#F0FDF4;color:#166534;}
+.email-st.fail{background:#FEF2F2;color:#991B1B;}
+.site-footer{border-top:3px solid;border-image:linear-gradient(90deg,var(--azul),var(--celeste),var(--amarillo)) 1;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:var(--blanco);font-size:11px;color:var(--gris-400);margin-top:3rem;}
 .hidden{display:none!important;}
 </style>
 </head>
 <body>
-
 <div class="stripe"></div>
-
 <header class="site-header">
   <div class="header-brand">
     <div class="brand-mark">DA</div>
     <div class="brand-text">
       <div class="title">Data Architect Assessment</div>
-      <div class="sub">Evaluación Técnica · Versión 2026</div>
+      <div class="sub">Evaluación Técnica · Versión 2025</div>
     </div>
   </div>
-  <div class="header-timer" id="header-timer" style="display:none;">
-    <div>
-      <div class="timer-label">Tiempo</div>
-      <div class="timer-val" id="timer-display">105:00</div>
-    </div>
+  <div class="header-timer" id="hdr-timer" style="display:none;">
+    <div><div class="timer-label">Tiempo restante</div><div class="timer-val" id="timer">105:00</div></div>
   </div>
 </header>
 
 <main class="main">
-
-  <!-- ═══════ START SCREEN ═══════ -->
+  <!-- START -->
   <div id="start-screen">
-    <div class="start-screen">
+    <div class="start-wrap">
       <div class="start-hero">
         <h1>Evaluación Técnica<br><span>Arquitecto de Datos</span></h1>
-        <p>Prueba estandarizada para medir competencias en ETL, modelado, SQL, BI y arquitectura cloud.</p>
+        <p>Sistema con keywords ponderadas y respuestas de referencia por pregunta. Puntaje automático + revisión manual.</p>
         <div class="hero-chips">
-          <span class="hero-chip">6 Secciones</span>
-          <span class="hero-chip">13 Preguntas</span>
-          <span class="hero-chip">110 Puntos</span>
-          <span class="hero-chip amarillo">Microsoft Fabric</span>
-          <span class="hero-chip">105 Minutos</span>
+          <span class="chip">6 Secciones</span><span class="chip">13 Preguntas</span>
+          <span class="chip">110 Puntos</span><span class="chip am">Microsoft Fabric</span>
+          <span class="chip">105 Minutos</span>
         </div>
       </div>
       <div class="start-body">
-        <div class="candidate-grid">
-          <div class="form-group"><label>Nombre Completo *</label><input type="text" id="cand-name" placeholder="Tu nombre completo" /></div>
-          <div class="form-group"><label>Años de Experiencia</label><input type="text" id="cand-exp" placeholder="Ej: 5 años" /></div>
-          <div class="form-group"><label>Puesto Actual</label><input type="text" id="cand-role" placeholder="Ej: Data Engineer" /></div>
+        <div class="cand-grid">
+          <div class="fg"><label>Nombre Completo *</label><input type="text" id="cand-name" placeholder="Tu nombre completo"/></div>
+          <div class="fg"><label>Años de Experiencia</label><input type="text" id="cand-exp" placeholder="Ej: 5 años"/></div>
+          <div class="fg"><label>Puesto Actual</label><input type="text" id="cand-role" placeholder="Ej: Data Engineer"/></div>
         </div>
-        <div class="notice azul"><strong>Sección especial:</strong> Esta evaluación incluye una sección de <strong>Microsoft Fabric</strong> orientada a migración desde entornos on-premise (SSIS, SSAS, SSRS, SQL Server).</div>
-        <div class="notice warn">
-          <strong>Instrucciones de la Evaluación:</strong> Lea detenidamente cada enunciado. 
-          El sistema permite la navegación libre entre secciones; si presenta dificultad en alguna pregunta, 
-          puede avanzar a la siguiente y retornar posteriormente para completar su respuesta dentro del tiempo estipulado.
-        </div>
+        <div class="notice az"><strong>Sistema de evaluación con keywords:</strong> Cada respuesta es analizada automáticamente contra términos técnicos ponderados y una respuesta de referencia. El puntaje es indicativo; el reporte incluye todo para revisión manual del evaluador.</div>
+        <div class="notice wn"><strong>Reglas:</strong> Prohibido el uso de IA (ChatGPT, Copilot u otras). La plataforma detecta cambios de pestaña, copiar/pegar masivo y ritmo de escritura anómalo. Al finalizar, el reporte se envía automáticamente al evaluador.</div>
         <button class="btn-start" onclick="startAssessment()">Iniciar Evaluación →</button>
       </div>
     </div>
   </div>
 
-  <!-- ═══════ ASSESSMENT SCREEN ═══════ -->
+  <!-- ASSESSMENT -->
   <div id="assessment-screen" class="hidden">
     <div class="progress-nav" id="progress-nav"></div>
     <div id="section-content"></div>
@@ -474,529 +215,995 @@ body{
     </div>
   </div>
 
-  <!-- ═══════ RESULT SCREEN ═══════ -->
+  <!-- RESULTS -->
   <div id="result-screen" class="hidden">
-    <div class="result-screen">
+    <div class="result-wrap">
       <div class="result-hero">
-        <div class="result-hero-left">
-          <h2>Resultado Final</h2>
-          <div class="final-score" id="final-score">--</div>
-          <div class="verdict" id="verdict-text">Calculando...</div>
+        <div>
+          <div class="rh-label">Resultado Final</div>
+          <div class="rh-score" id="final-score">--</div>
+          <div class="rh-verdict" id="verdict-text">Calculando...</div>
         </div>
-        <div class="result-hero-right">
-          <div class="verdict-chip" id="verdict-chip">--</div>
-        </div>
+        <div class="verdict-chip" id="verdict-chip">--</div>
       </div>
-
-      <div class="score-label-row"><div class="dot"></div><span>Secciones Core (100 pts)</span></div>
+      <div class="res-sec-ttl">Secciones Core — 100 pts</div>
       <div class="score-grid" id="score-grid-core"></div>
-      <div class="score-label-row" style="margin-top:.75rem;"><div class="dot" style="background:var(--celeste);"></div><span>Microsoft Fabric (10 pts)</span></div>
-      <div class="score-grid" style="grid-template-columns:repeat(3,1fr);" id="score-grid-fabric"></div>
-
-      <div class="ai-report">
-        <h3>Reporte de Comportamiento</h3>
-        <div id="ai-events-list"></div>
-      </div>
-
-      <div id="email-status" class="email-status"></div>
-
+      <div class="res-sec-ttl" style="margin-top:.5rem;">Microsoft Fabric — 10 pts</div>
+      <div class="score-grid" id="score-grid-fabric"></div>
+      <div class="ai-report"><h3>Reporte de Comportamiento</h3><div id="ai-events-list"></div></div>
+      <div id="email-st" class="email-st"></div>
       <div class="result-actions">
-        <button class="btn-dl primary" onclick="downloadReport()">↓ Descargar Reporte TXT</button>
-        <button class="btn-dl secondary" onclick="resendEmail()">↺ Reenviar por Correo</button>
+        <button class="btn-dl pri" onclick="downloadReport()">↓ Descargar Reporte TXT</button>
+        <button class="btn-dl sec" onclick="resendEmail()">↺ Reenviar por Correo</button>
       </div>
     </div>
   </div>
-
 </main>
 
 <footer class="site-footer">
   <span>Data Architect Assessment · 2025</span>
-  <span>Plataforma de Evaluación Técnica Interna</span>
+  <span>Keywords Ponderadas + Respuesta de Referencia por Pregunta</span>
 </footer>
 
 <script>
-// ══════════════════════════════════════════════════════════
-// DATOS DE LA PRUEBA
-// ══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════
+// BANCO DE PREGUNTAS
+// keywords[]: {term, pts, aliases[]}  → palabras técnicas con peso
+// idealAnswer: respuesta modelo (solo visible en reporte evaluador)
+// scoring: 70% keywords + 30% extensión mínima × penalización paste
+// ═══════════════════════════════════════════════════════════════════
 const SECTIONS = [
+{
+  id:'etl', label:'ETL / Pipelines', weight:20, fabric:false,
+  questions:[
   {
-    id:'etl', label:'ETL / Pipelines', weight:20, fabric:false,
-    questions:[
-      { id:'q1', points:10, tag:null,
-        text:'Diseña un pipeline ETL para ingestar datos de ventas desde una API REST que retorna JSON, transformarlos y cargarlos en un Data Warehouse. Explica cada capa, manejo de errores y estrategia de reintentos.',
-        context:'La API retorna ~500K registros/día. El DW es Snowflake. Los datos tienen campos nulos frecuentes en "discount_pct" y "region_code". Se requiere idempotencia.',
-        type:'text', minWords:80 },
-      { id:'q2', points:10, tag:'CÓDIGO',
-        text:'Escribe código Python (pandas o pyspark) para limpiar un DataFrame con columnas: order_id, date, amount, customer_id, status. Incluye deduplicación, normalización de fechas, validación de tipos y manejo de nulos.',
-        context:'order_id puede ser int o string. date viene en múltiples formatos (YYYY-MM-DD, MM/DD/YYYY, epoch). amount tiene comas como separador decimal en algunos registros.',
-        type:'code', minWords:50 }
-    ]
+    id:'q1', points:10, tag:null, type:'text', minWords:80,
+    text:'Diseña un pipeline ETL para ingestar datos de ventas desde una API REST que retorna JSON, transformarlos y cargarlos en un Data Warehouse. Explica cada capa, manejo de errores y estrategia de reintentos.',
+    context:'La API retorna ~500K registros/día. El DW es Snowflake. Campos nulos frecuentes en "discount_pct" y "region_code". Se requiere idempotencia.',
+    keywords:[
+      {term:'idempotencia',       pts:2,   aliases:['idempotente','idempotent','idempotencia']},
+      {term:'retry',              pts:1.5, aliases:['reintento','reintentos','backoff','exponential backoff']},
+      {term:'extracción',         pts:1,   aliases:['extract','ingesta','ingest','ingestion']},
+      {term:'transformación',     pts:1,   aliases:['transform','limpieza','cleansing','cleaning']},
+      {term:'carga',              pts:1,   aliases:['load','upsert','merge','copy into']},
+      {term:'manejo de errores',  pts:1.5, aliases:['error handling','dead letter','dlq','exception','try catch','excepcion']},
+      {term:'nulos',              pts:1,   aliases:['null','valores nulos','missing','fillna','coalesce']},
+      {term:'snowflake',          pts:1,   aliases:['snowpipe','snow pipe','stage s3']},
+    ],
+    idealAnswer:`Una respuesta completa debe incluir:
+1. EXTRACCIÓN: Llamadas paginadas a la API con autenticación (Bearer/OAuth), manejo de rate limits, guardado en staging (S3/ADLS) con formato Parquet o JSON.
+2. TRANSFORMACIÓN: Limpieza de nulos (discount_pct→0, region_code→'UNKNOWN'), normalización de tipos, deduplicación por clave natural de negocio.
+3. CARGA: MERGE/UPSERT en Snowflake usando clave natural para garantizar idempotencia. Si el registro existe → actualiza; si no → inserta.
+4. REINTENTOS: Exponential backoff (1s, 2s, 4s), máximo 3 intentos por lote fallido. Los registros que fallan tras 3 intentos van a dead-letter queue para revisión manual.
+5. ORQUESTACIÓN: Herramienta como Airflow o ADF que registre metadatos de cada ejecución (filas procesadas, errores, timestamp de inicio/fin).
+6. LOGGING: Tabla de auditoría en Snowflake con estado de cada ejecución.`
   },
   {
-    id:'modeling', label:'Modelado', weight:20, fabric:false,
-    questions:[
-      { id:'q3', points:10, tag:null,
-        text:'Diseña un modelo dimensional (esquema estrella o copo de nieve) para un sistema de e-commerce. Define las tablas de hechos y dimensiones, claves, granularidad y tipo de SCD para las dimensiones que lo requieran.',
-        context:'Entidades: Clientes, Productos, Vendedores, Pedidos, Envíos. Los precios cambian con el tiempo. Los clientes pueden cambiar de región.',
-        type:'text', minWords:100 },
-      { id:'q4', points:10, tag:null,
-        text:'¿Cuál es la diferencia entre una tabla de hechos de transacciones y una de snapshots periódicos? Da un ejemplo concreto de cuándo usar cada una y describe las implicaciones de almacenamiento.',
-        context:null, type:'text', minWords:60 }
-    ]
-  },
-  {
-    id:'sql', label:'SQL Avanzado', weight:25, fabric:false,
-    questions:[
-      { id:'q5', points:12, tag:'CÓDIGO',
-        text:'Dado el siguiente esquema, escribe una query que calcule el top 3 productos más vendidos por región en el último trimestre, incluyendo % de participación sobre el total de ventas por región y el ranking anterior para comparar cambios.',
-        context:'TABLES: orders(order_id, date, region, total), order_items(order_id, product_id, qty, unit_price), products(product_id, name, category). Usa funciones de ventana.',
-        type:'code', minWords:40 },
-      { id:'q6', points:13, tag:null,
-        text:'Optimiza la siguiente query y explica cada decisión:\n"SELECT * FROM orders o JOIN customers c ON o.cust_id = c.id WHERE YEAR(o.date) = 2024 AND c.country IN (SELECT country FROM vip_countries) ORDER BY o.total DESC"',
-        context:'orders: 50M filas · customers: 2M filas · vip_countries: 15 filas. Sin índices. Motor: PostgreSQL.',
-        type:'text', minWords:80 }
-    ]
-  },
-  {
-    id:'bi', label:'Power BI / BI', weight:15, fabric:false,
-    questions:[
-      { id:'q7', points:8, tag:'DAX',
-        text:'Escribe la fórmula DAX para calcular el "Rolling 12-Month Revenue" (suma móvil de 12 meses) y explica línea por línea qué hace cada parte de la expresión.',
-        context:'Tienes una tabla Fact_Sales con columnas: Date, Revenue. Y una tabla de calendario Date_Table con columna Date marcada como tabla de fechas.',
-        type:'code', minWords:40 },
-      { id:'q8', points:7, tag:null,
-        text:'Un stakeholder te pide un dashboard de KPIs. ¿Qué preguntas harías antes de diseñarlo? Describe tu proceso para definir métricas, jerarquía visual y elección de visualizaciones correctas.',
-        context:null, type:'text', minWords:70 }
-    ]
-  },
-  {
-    id:'architecture', label:'Arquitectura', weight:20, fabric:false,
-    questions:[
-      { id:'q9', points:10, tag:null,
-        text:'Una empresa procesa 10TB de datos diarios desde 20 fuentes distintas (APIs, SFTP, CDC). Diseña la arquitectura del Data Lake/Lakehouse incluyendo capas, herramientas, estrategia de particionado y catálogo de datos.',
-        context:'Presupuesto: $15K/mes en AWS. Equipo: 3 data engineers. Latencia: análisis D+1 para reportes, near-realtime para alertas.',
-        type:'text', minWords:120 },
-      { id:'q10', points:10, tag:null,
-        text:'Explica qué es Data Lineage, por qué es crítico en una arquitectura moderna, cómo lo implementarías y qué herramientas usarías. Incluye un caso donde la falta de lineage causó un problema real.',
-        context:null, type:'text', minWords:80 }
-    ]
-  },
-  {
-    id:'fabric', label:'Microsoft Fabric', weight:10, fabric:true,
-    questions:[
-      { id:'q11', points:4, tag:'ARQUITECTURA',
-        text:'Explica la arquitectura de Microsoft Fabric: qué es OneLake, cómo se relacionan las experiencias integradas (Data Engineering, Data Warehouse, Data Science, Real-Time Intelligence, Power BI) y qué ventaja tiene sobre herramientas separadas (Azure Data Factory + Synapse + Power BI).',
-        context:'Contexto: empresa con SQL Server 2019 on-premise + SSIS para ETLs + SSRS para reportes + SSAS Tabular para modelos semánticos. Tienen 3TB de datos históricos.',
-        type:'text', minWords:90 },
-      { id:'q12', points:3, tag:'MIGRACIÓN ETL',
-        text:'Diseña el plan de migración de los ETLs en SSIS a Microsoft Fabric. ¿Qué herramienta usarías (Data Pipeline o Spark Notebooks)? ¿Cuándo usarías una u otra? Describe las fases de migración y los riesgos principales.',
-        context:'Los SSIS packages incluyen: transformaciones en Script Task (C#), conexiones a 8 fuentes (Oracle, flat files, REST APIs, SAP) y cargas incrementales con merge personalizado. El equipo no tiene experiencia en Python/Spark.',
-        type:'text', minWords:100 },
-      { id:'q13', points:3, tag:'LAKEHOUSE',
-        text:'Describe cómo migrarías el modelo semántico de SSAS Tabular a Fabric. ¿Qué es un Lakehouse vs un Warehouse en Fabric? ¿Cuándo usarías Delta Tables en el Lakehouse vs SQL Tables en el Warehouse? Incluye la estrategia para los reportes de SSRS.',
-        context:'El modelo SSAS tiene 15 medidas DAX, 3 tablas de hechos (50M+ filas c/u), dimensiones con jerarquías multinivel y RLS por departamento. Los reportes SSRS son consumidos por 200 usuarios en la intranet.',
-        type:'text', minWords:100 }
-    ]
+    id:'q2', points:10, tag:'CÓDIGO', type:'code', minWords:40,
+    text:'Escribe código Python (pandas o pyspark) para limpiar un DataFrame con columnas: order_id, date, amount, customer_id, status. Incluye: deduplicación, normalización de fechas, validación de tipos y manejo de nulos.',
+    context:'order_id puede ser int o string. date viene en múltiples formatos (YYYY-MM-DD, MM/DD/YYYY, epoch). amount tiene comas como separador decimal.',
+    keywords:[
+      {term:'drop_duplicates', pts:2,   aliases:['dropduplicates','dedup','drop duplicates']},
+      {term:'to_datetime',     pts:2,   aliases:['pd.to_datetime','parse_dates','strptime','datetime']},
+      {term:'fillna',          pts:1.5, aliases:['dropna','isnull','isna','notna']},
+      {term:'astype',          pts:1.5, aliases:['cast','dtype','infer_objects']},
+      {term:'str.replace',     pts:1.5, aliases:['replace(','.replace(','strip()']},
+      {term:'try',             pts:1,   aliases:['except','try-except','exception']},
+      {term:'to_numeric',      pts:0.5, aliases:['pd.to_numeric','float','numeric']},
+    ],
+    idealAnswer:`import pandas as pd
+
+df = pd.read_csv("ventas.csv")
+
+# 1. Deduplicación por clave natural
+df = df.drop_duplicates(subset=["order_id"])
+
+# 2. Normalizar order_id a string
+df["order_id"] = df["order_id"].astype(str).str.strip()
+
+# 3. Normalizar fechas (múltiples formatos)
+df["date"] = pd.to_datetime(df["date"], infer_datetime_format=True, errors="coerce")
+
+# 4. Limpiar amount: reemplazar coma decimal por punto y convertir a float
+df["amount"] = (df["amount"].astype(str)
+                .str.replace(",", ".", regex=False)
+                .str.strip())
+df["amount"] = pd.to_numeric(df["amount"], errors="coerce")
+
+# 5. Manejo de nulos
+df["discount_pct"] = df["discount_pct"].fillna(0)
+df["region_code"]  = df["region_code"].fillna("UNKNOWN")
+df = df.dropna(subset=["order_id", "date", "amount", "customer_id"])
+
+# 6. Validar status sea un valor conocido
+valid_status = {"pending", "completed", "cancelled", "refunded"}
+df = df[df["status"].isin(valid_status)]`
   }
+  ]
+},
+{
+  id:'modeling', label:'Modelado', weight:20, fabric:false,
+  questions:[
+  {
+    id:'q3', points:10, tag:null, type:'text', minWords:100,
+    text:'Diseña un modelo dimensional para un sistema de e-commerce. Define tablas de hechos y dimensiones, claves, granularidad y tipo de SCD para las dimensiones que lo requieran.',
+    context:'Entidades: Clientes, Productos, Vendedores, Pedidos, Envíos. Los precios cambian con el tiempo. Los clientes pueden cambiar de región.',
+    keywords:[
+      {term:'tabla de hechos',   pts:2,   aliases:['fact table','fact_orders','fact_sales','tabla hechos']},
+      {term:'dimensión',         pts:1,   aliases:['dim_cliente','dim_producto','dim table','tabla dimension']},
+      {term:'scd tipo 2',        pts:2.5, aliases:['scd2','slowly changing dimension','tipo 2','type 2','scd 2']},
+      {term:'granularidad',      pts:2,   aliases:['granularity','nivel de detalle','grano','nivel de linea']},
+      {term:'surrogate key',     pts:1.5, aliases:['clave sustituta','sk_','llave surrogate','id sustituto']},
+      {term:'esquema estrella',  pts:1,   aliases:['star schema','snowflake schema','copo de nieve']},
+    ],
+    idealAnswer:`Modelo estrella con:
+
+FACT_PEDIDO_LINEA (granularidad: 1 fila por línea de pedido)
+  Columnas: sk_pedido, sk_cliente, sk_producto, sk_vendedor, sk_fecha, sk_envio,
+            cantidad, precio_unitario, descuento_pct, total_linea
+
+DIM_CLIENTE → SCD Tipo 2 (cambia de región)
+  sk_cliente, cliente_id, nombre, region, ciudad, segmento,
+  fecha_inicio, fecha_fin, es_vigente
+
+DIM_PRODUCTO → SCD Tipo 2 (precio cambia con el tiempo)
+  sk_producto, producto_id, nombre, categoria, subcategoria,
+  precio_lista, fecha_inicio, fecha_fin, es_vigente
+
+DIM_VENDEDOR → SCD Tipo 1 (actualización directa)
+  sk_vendedor, vendedor_id, nombre, zona
+
+DIM_ENVIO → SCD Tipo 1
+  sk_envio, metodo_envio, transportista, estado
+
+DIM_FECHA (tabla de calendario completa)
+  sk_fecha, fecha, dia, semana, mes, trimestre, anio, es_feriado
+
+Las surrogate keys son enteros autogenerados (IDENTITY).
+Las claves naturales se mantienen como atributos para trazabilidad.
+El SCD Tipo 2 permite ver el precio o región que tenía el cliente/producto AL MOMENTO del pedido.`
+  },
+  {
+    id:'q4', points:10, tag:null, type:'text', minWords:60,
+    text:'¿Cuál es la diferencia entre una tabla de hechos de transacciones y una de snapshots periódicos? Da un ejemplo concreto de cada una y describe las implicaciones de almacenamiento.',
+    context:null,
+    keywords:[
+      {term:'transaccional',       pts:2,   aliases:['transaction','transacción','evento','append-only','append only']},
+      {term:'snapshot periódico',  pts:2.5, aliases:['periodic snapshot','instantánea','fotografía','saldo al cierre']},
+      {term:'acumulativo',         pts:2,   aliases:['accumulating snapshot','ciclo de vida','pipeline fact']},
+      {term:'almacenamiento',      pts:1.5, aliases:['storage','espacio','tamaño','volumen','crecimiento']},
+      {term:'inventario',          pts:1,   aliases:['balance','saldo','stock','posicion']},
+      {term:'inmutable',           pts:1,   aliases:['immutable','append only','solo inserta','no se actualiza']},
+    ],
+    idealAnswer:`TRANSACCIONAL (Transaction Fact Table):
+  - Registra cada evento de negocio como una fila nueva e inmutable (append-only).
+  - Ejemplo: cada venta, cada pago, cada devolución.
+  - Crece indefinidamente conforme hay actividad. No se actualiza.
+  - Ideal para analizar comportamientos, embudos, frecuencia de compra.
+
+SNAPSHOT PERIÓDICO (Periodic Snapshot):
+  - Captura el estado de un proceso en intervalos regulares (diario, semanal, mensual).
+  - Ejemplo: saldo de inventario al cierre del día, balance de cuenta bancaria al mes.
+  - Genera 1 fila por entidad × período → puede volverse muy grande.
+  - Permite ver tendencias de estado sin reconstruir historia desde transacciones.
+  - Algunos campos pueden actualizarse (p. ej. corrección del cierre).
+
+SNAPSHOT ACUMULATIVO (Accumulating Snapshot):
+  - Rastrea el ciclo de vida de un proceso con etapas definidas.
+  - Ejemplo: fila por pedido con columnas fecha_creacion, fecha_pago, fecha_envio, fecha_entrega.
+  - Se ACTUALIZA conforme avanza el pedido. Las FK de dimensión de fecha se rellenan en el tiempo.
+
+ALMACENAMIENTO:
+  - Transaccional: crece solo si hay actividad. Eficiente para eventos poco frecuentes.
+  - Snapshot periódico: crece siempre (N entidades × M períodos). Puede ser enorme.
+  - Se recomienda particionar snapshots por fecha y archivar períodos antiguos.`
+  }
+  ]
+},
+{
+  id:'sql', label:'SQL Avanzado', weight:25, fabric:false,
+  questions:[
+  {
+    id:'q5', points:12, tag:'CÓDIGO', type:'code', minWords:40,
+    text:'Escribe una query que calcule el top 3 productos más vendidos por región en el último trimestre, incluyendo % de participación sobre ventas totales por región y el ranking del trimestre anterior para comparar.',
+    context:'TABLES: orders(order_id, date, region, total), order_items(order_id, product_id, qty, unit_price), products(product_id, name, category). Usa funciones de ventana.',
+    keywords:[
+      {term:'rank(',         pts:2.5, aliases:['RANK(','dense_rank(','DENSE_RANK(','row_number(']},
+      {term:'partition by',  pts:2.5, aliases:['PARTITION BY']},
+      {term:'over(',         pts:2,   aliases:['OVER (','OVER(']},
+      {term:'with ',         pts:1.5, aliases:['WITH ','cte','common table expression']},
+      {term:'date_trunc',    pts:1,   aliases:['DATE_TRUNC','quarter','dateadd','interval','QUARTER']},
+      {term:'sum(',          pts:1.5, aliases:['SUM(','total_ventas']},
+      {term:'join',          pts:1,   aliases:['JOIN','inner join','INNER JOIN']},
+    ],
+    idealAnswer:`WITH rango_actual AS (
+  SELECT
+    p.name                                       AS producto,
+    o.region,
+    SUM(oi.qty * oi.unit_price)                  AS total_venta,
+    SUM(SUM(oi.qty * oi.unit_price))
+      OVER (PARTITION BY o.region)               AS total_region,
+    RANK() OVER (
+      PARTITION BY o.region
+      ORDER BY SUM(oi.qty * oi.unit_price) DESC
+    )                                            AS ranking_actual
+  FROM orders o
+  JOIN order_items oi ON o.order_id = oi.order_id
+  JOIN products    p  ON oi.product_id = p.product_id
+  WHERE o.date >= DATE_TRUNC('quarter', CURRENT_DATE - INTERVAL '3 months')
+    AND o.date <  DATE_TRUNC('quarter', CURRENT_DATE)
+  GROUP BY p.name, o.region
+),
+rango_anterior AS (
+  SELECT
+    p.name AS producto,
+    o.region,
+    RANK() OVER (
+      PARTITION BY o.region
+      ORDER BY SUM(oi.qty * oi.unit_price) DESC
+    ) AS ranking_anterior
+  FROM orders o
+  JOIN order_items oi ON o.order_id = oi.order_id
+  JOIN products    p  ON oi.product_id = p.product_id
+  WHERE o.date >= DATE_TRUNC('quarter', CURRENT_DATE - INTERVAL '6 months')
+    AND o.date <  DATE_TRUNC('quarter', CURRENT_DATE - INTERVAL '3 months')
+  GROUP BY p.name, o.region
+)
+SELECT
+  a.region,
+  a.producto,
+  a.total_venta,
+  ROUND(a.total_venta / a.total_region * 100, 2)  AS pct_region,
+  a.ranking_actual,
+  COALESCE(r.ranking_anterior, 99)                AS ranking_anterior
+FROM rango_actual a
+LEFT JOIN rango_anterior r
+       ON a.producto = r.producto AND a.region = r.region
+WHERE a.ranking_actual <= 3
+ORDER BY a.region, a.ranking_actual;`
+  },
+  {
+    id:'q6', points:13, tag:null, type:'text', minWords:80,
+    text:'Optimiza la siguiente query y explica cada decisión:\n"SELECT * FROM orders o JOIN customers c ON o.cust_id = c.id WHERE YEAR(o.date) = 2024 AND c.country IN (SELECT country FROM vip_countries) ORDER BY o.total DESC"',
+    context:'orders: 50M filas · customers: 2M filas · vip_countries: 15 filas. Sin índices. Motor: PostgreSQL.',
+    keywords:[
+      {term:'índice',            pts:2,   aliases:['index','create index','b-tree','bitmap index','indice']},
+      {term:'sargable',          pts:2.5, aliases:['sargabilidad','funcion en columna','non-sargable','no sargable']},
+      {term:'exists',            pts:2,   aliases:['EXISTS','semi join','IN vs EXISTS']},
+      {term:'select *',          pts:1.5, aliases:['proyeccion','columnas especificas','evitar select *']},
+      {term:'explain',           pts:2,   aliases:['EXPLAIN ANALYZE','query plan','plan de ejecucion','execution plan']},
+      {term:'between',           pts:1.5, aliases:["date >= '2024","rango de fechas","date range","'>= 2024"]},
+      {term:'particionado',      pts:1.5, aliases:['partition','particion','table partition','range partition']},
+    ],
+    idealAnswer:`Problemas identificados y soluciones:
+
+1. YEAR(o.date) = 2024 → NO SARGABLE
+   Problema: aplicar función sobre la columna impide usar índice (full scan de 50M filas).
+   Solución: o.date >= '2024-01-01' AND o.date < '2025-01-01'
+
+2. SELECT * → PROYECCIÓN INNECESARIA
+   Problema: trae todas las columnas aunque no se necesiten → más I/O y red.
+   Solución: seleccionar solo las columnas requeridas (o.order_id, o.date, o.total, c.name, c.country).
+
+3. IN (SELECT country FROM vip_countries) → SUBQUERY REPETIDA
+   Problema: puede evaluarse una vez por fila en motores no optimizados.
+   Solución: usar EXISTS o un JOIN directo con vip_countries (tabla de 15 filas → hash join eficiente).
+
+4. SIN ÍNDICES
+   Solución: CREATE INDEX idx_orders_date ON orders(date);
+             CREATE INDEX idx_orders_cust  ON orders(cust_id);
+             CREATE INDEX idx_cust_country ON customers(id, country);
+
+5. PARTICIONADO (mejora estructural)
+   Particionar orders por año/mes permite que el planificador descarte particiones completas.
+
+6. VERIFICAR CON EXPLAIN ANALYZE
+   Correr EXPLAIN ANALYZE antes y después de los cambios para confirmar que usa Index Scan en vez de Seq Scan.
+
+Query optimizada:
+SELECT o.order_id, o.date, o.total, c.name, c.country
+FROM orders o
+JOIN customers c ON o.cust_id = c.id
+WHERE o.date >= '2024-01-01' AND o.date < '2025-01-01'
+  AND EXISTS (SELECT 1 FROM vip_countries vc WHERE vc.country = c.country)
+ORDER BY o.total DESC;`
+  }
+  ]
+},
+{
+  id:'bi', label:'Power BI / BI', weight:15, fabric:false,
+  questions:[
+  {
+    id:'q7', points:8, tag:'DAX', type:'code', minWords:40,
+    text:'Escribe la fórmula DAX para calcular el "Rolling 12-Month Revenue" y explica línea por línea qué hace cada parte de la expresión.',
+    context:'Tabla Fact_Sales (Date, Revenue). Tabla Date_Table (Date) marcada como tabla de fechas.',
+    keywords:[
+      {term:'CALCULATE(',    pts:2,   aliases:['calculate(']},
+      {term:'DATESINPERIOD', pts:2.5, aliases:['datesinperiod(','DATESYTD','DATEADD']},
+      {term:'LASTDATE',      pts:1.5, aliases:['lastdate(','MAX(Date','MAX(Date_Table']},
+      {term:'SUM(',          pts:1,   aliases:['sum(','SUMX']},
+      {term:'-12',           pts:1,   aliases:['-12,','12 meses','MONTH,-12']},
+    ],
+    idealAnswer:`Rolling12MRevenue =
+CALCULATE(
+    SUM(Fact_Sales[Revenue]),        -- Métrica base: suma de ingresos del período filtrado
+    DATESINPERIOD(
+        Date_Table[Date],            -- Columna de fecha de la tabla de calendario
+        LASTDATE(Date_Table[Date]),  -- Fecha final = último día visible en el contexto del reporte
+        -12,                         -- Retroceder 12 unidades
+        MONTH                        -- Unidad de tiempo: mes
+    )
+)
+
+Explicación línea por línea:
+- CALCULATE: modifica el contexto de filtro para la expresión que contiene.
+- SUM(Fact_Sales[Revenue]): métrica base que se evaluará con el nuevo contexto de fechas.
+- DATESINPERIOD: devuelve una tabla de fechas desde la fecha final hacia atrás 12 meses.
+- LASTDATE(Date_Table[Date]): determina el último día del período seleccionado por el usuario.
+- -12, MONTH: instrucción para retroceder 12 meses desde LASTDATE.
+
+Resultado: para cada fecha del eje X del visual, el valor es la suma de Revenue
+de los 12 meses previos, creando una "ventana móvil" que se desplaza mes a mes.`
+  },
+  {
+    id:'q8', points:7, tag:null, type:'text', minWords:70,
+    text:'Un stakeholder te pide un dashboard de KPIs. ¿Qué preguntas harías antes de diseñarlo? Describe tu proceso para definir métricas, jerarquía visual y elección de visualizaciones.',
+    context:null,
+    keywords:[
+      {term:'audiencia',      pts:1.5, aliases:['usuarios','audience','perfil del usuario','quien lo consume']},
+      {term:'kpi',            pts:1,   aliases:['indicador clave','key performance','metrica clave']},
+      {term:'drill down',     pts:1.5, aliases:['drilldown','drill-down','jerarquia','desglose']},
+      {term:'granularidad',   pts:1.5, aliases:['nivel de detalle','granularity','agregacion']},
+      {term:'frecuencia',     pts:1,   aliases:['actualizacion','refresh','tiempo real','latencia']},
+      {term:'requerimiento',  pts:0.5, aliases:['requirement','objetivo de negocio','caso de uso']},
+    ],
+    idealAnswer:`PREGUNTAS CLAVE ANTES DE DISEÑAR:
+1. ¿Quién es la audiencia? (C-level ve totales; analista operativo ve detalle)
+2. ¿Cuál es la pregunta de negocio principal que debe responder el dashboard?
+3. ¿Qué acción tomará el usuario según lo que vea?
+4. ¿Con qué frecuencia se actualiza? (real-time, diario, mensual)
+5. ¿Cuál es el nivel de granularidad y qué drill-downs necesita?
+6. ¿Existen definiciones acordadas de las métricas o hay múltiples versiones?
+
+PROCESO DE DISEÑO:
+- Definir 3-5 KPIs principales con fórmula escrita y acordada con el negocio.
+- Jerarquía visual: KPIs semáforo arriba → tendencia en el centro → detalle/tabla abajo.
+- Máx. 5-7 visualizaciones por página para no saturar.
+
+ELECCIÓN DE VISUALIZACIÓN:
+- Tendencia en el tiempo → gráfico de línea.
+- Comparación entre categorías → barra horizontal.
+- Distribución geográfica → mapa.
+- KPI puntual vs meta → tarjeta con indicador de variación.
+- Relación entre dos variables → dispersión.
+
+DOCUMENTACIÓN: cada métrica debe tener su definición visible en el reporte
+(tooltip o sección de glosario) para evitar ambigüedades.`
+  }
+  ]
+},
+{
+  id:'architecture', label:'Arquitectura', weight:20, fabric:false,
+  questions:[
+  {
+    id:'q9', points:10, tag:null, type:'text', minWords:120,
+    text:'Una empresa procesa 10TB diarios desde 20 fuentes (APIs, SFTP, CDC). Diseña la arquitectura del Data Lake/Lakehouse incluyendo capas, herramientas, estrategia de particionado y catálogo de datos.',
+    context:'$15K/mes en AWS. Equipo: 3 data engineers. Latencia: D+1 para reportes, near-realtime para alertas.',
+    keywords:[
+      {term:'bronze',         pts:1.5, aliases:['raw','landing zone','zona de aterrizaje','capa raw']},
+      {term:'silver',         pts:1.5, aliases:['staging','curated','zona curada','capa silver']},
+      {term:'gold',           pts:1.5, aliases:['serving','consumption','zona de consumo','capa gold']},
+      {term:'delta',          pts:2,   aliases:['delta lake','delta table','iceberg','apache iceberg','hudi']},
+      {term:'catalogo',       pts:1.5, aliases:['catalog','glue catalog','data catalog','aws glue','metastore']},
+      {term:'particionado',   pts:1.5, aliases:['partition','particion','partitioning','particionamiento']},
+      {term:'cdc',            pts:1,   aliases:['change data capture','debezium','kinesis','dms']},
+      {term:'kinesis',        pts:1,   aliases:['kafka','streaming','near realtime','firehose','near-realtime']},
+    ],
+    idealAnswer:`ARQUITECTURA MEDALLION EN AWS:
+
+CAPA BRONZE (Raw):
+- S3 bucket con archivos en formato original (JSON, CSV, Parquet, ORC).
+- Particionado: s3://bucket/bronze/{fuente}/{año}/{mes}/{dia}/
+- Sin transformación. Solo ingesta y almacenamiento raw.
+- Retención: 1 año. Lifecycle policy a Glacier después de 90 días.
+
+CAPA SILVER (Curated):
+- Delta Lake sobre S3 (o Apache Iceberg para mayor compatibilidad).
+- Tablas limpias, tipadas, deduplicadas y normalizadas.
+- Procesamiento: AWS Glue (Spark serverless) para batch D+1.
+- Particionado por fecha de negocio: año/mes/día.
+
+CAPA GOLD (Serving):
+- Tablas agregadas y modelos dimensionales listos para consumo.
+- Athena + Redshift Serverless para SQL ad-hoc.
+- Conectado directamente a Power BI o QuickSight.
+
+NEAR-REALTIME (alertas):
+- Kinesis Data Streams para captura de eventos en tiempo casi real.
+- Lambda o Kinesis Data Analytics para transformaciones simples.
+- Umbral de latencia: < 5 minutos.
+
+CDC: AWS DMS o Debezium para capturar cambios desde bases transaccionales.
+
+CATÁLOGO DE DATOS:
+- AWS Glue Data Catalog con clasificadores automáticos.
+- Descripciones de tablas, columnas y owners en cada tabla.
+- AWS Lake Formation para control de acceso granular (columna/fila).
+- CloudWatch para monitoreo de jobs y alertas.
+
+COSTO: EMR Serverless (spot) + Glue + S3 Intelligent-Tiering + Athena
+        estimado dentro de $15K/mes para 3 ingenieros.`
+  },
+  {
+    id:'q10', points:10, tag:null, type:'text', minWords:80,
+    text:'Explica qué es Data Lineage, por qué es crítico, cómo lo implementarías y qué herramientas usarías. Incluye un caso donde la falta de lineage causó un problema real.',
+    context:null,
+    keywords:[
+      {term:'purview',             pts:2,   aliases:['microsoft purview','azure purview']},
+      {term:'openlineage',         pts:2,   aliases:['open lineage','marquez','openlineage.io']},
+      {term:'gobierno de datos',   pts:2,   aliases:['data governance','gobernanza','governance']},
+      {term:'analisis de impacto', pts:2,   aliases:['impact analysis','impacto aguas abajo','downstream impact','analisis impacto']},
+      {term:'linaje',              pts:1,   aliases:['lineage','trazabilidad','data lineage']},
+      {term:'columnar',            pts:1,   aliases:['column lineage','linaje columna','field lineage']},
+    ],
+    idealAnswer:`DATA LINEAGE: capacidad de rastrear el origen, movimiento y transformación
+de un dato desde su fuente hasta su consumo final (BI, ML, reportes regulatorios).
+
+POR QUÉ ES CRÍTICO:
+- Análisis de impacto: si cambia una tabla fuente, saber instantáneamente qué reportes y pipelines aguas abajo se ven afectados.
+- Gobierno de datos: cumplimiento de GDPR, CCPA, SOX → se puede demostrar de dónde viene cada dato.
+- Depuración: cuando un KPI muestra valores incorrectos, el lineage permite rastrear hasta la fuente del error.
+- Confianza en los datos: los consumidores saben exactamente cómo se calculó cada número.
+
+IMPLEMENTACIÓN:
+1. Instrumentar pipelines con OpenLineage (estándar abierto compatible con Airflow, Spark, dbt).
+   Emite eventos START/COMPLETE/FAIL con información de inputs y outputs.
+2. Backend: Apache Marquez (open source) o Microsoft Purview (enterprise) para almacenar y visualizar el grafo de linaje.
+3. Capturar linaje a nivel de COLUMNA (no solo tabla) para máxima granularidad.
+4. Integrar el catálogo de datos con el sistema de linaje.
+5. Alertas automáticas a dueños de datasets afectados cuando cambia un upstream.
+
+CASO REAL:
+Un equipo de ingeniería modifica la lógica del campo "amount" en la tabla fact_sales:
+pasa de incluir IVA a excluirlo (cambio de negocio legítimo). Sin lineage, 12 reportes
+downstream siguen calculando Revenue con la lógica anterior durante 3 semanas antes de
+que el CFO note la discrepancia en el cierre mensual. Con Purview + análisis de impacto,
+el cambio hubiera notificado automáticamente a los 12 dueños de datasets el día del deploy,
+permitiendo coordinar la actualización simultánea de todos los consumidores.`
+  }
+  ]
+},
+{
+  id:'fabric', label:'Microsoft Fabric', weight:10, fabric:true,
+  questions:[
+  {
+    id:'q11', points:4, tag:'ARQUITECTURA', type:'text', minWords:90,
+    text:'Explica la arquitectura de Microsoft Fabric: qué es OneLake, cómo se relacionan las experiencias integradas y qué ventaja tiene sobre herramientas separadas (ADF + Synapse + Power BI).',
+    context:'Empresa con SQL Server 2019 on-premise + SSIS + SSRS + SSAS Tabular. 3TB de datos históricos.',
+    keywords:[
+      {term:'onelake',       pts:1,   aliases:['one lake','one data lake','lago unificado']},
+      {term:'lakehouse',     pts:1,   aliases:['lake house','fabric lakehouse']},
+      {term:'capacidad',     pts:0.5, aliases:['capacity','sku','f64','fabric capacity','tenant']},
+      {term:'shortcut',      pts:0.5, aliases:['shortcuts','acceso directo']},
+      {term:'experiencias',  pts:1,   aliases:['workloads','experiences','data engineering','data warehouse','data science']},
+      {term:'sin mover',     pts:1,   aliases:['sin mover datos','no data movement','zero copy','copia cero']},
+    ],
+    idealAnswer:`MICROSOFT FABRIC es una plataforma SaaS unificada de datos y analítica.
+
+ONELAKE: almacenamiento único y lógico por tenant. Todas las experiencias de Fabric
+(Data Engineering, Data Warehouse, Data Science, Real-Time Intelligence y Power BI)
+leen y escriben en el mismo OneLake sin mover datos entre servicios.
+Formato nativo: Delta/Parquet sobre Azure Data Lake Storage Gen2.
+
+EXPERIENCIAS INTEGRADAS:
+- Data Engineering: Spark notebooks y pipelines para ETL/ELT.
+- Data Warehouse: motor SQL nativo T-SQL con transacciones ACID.
+- Data Science: notebooks con MLflow para modelos de ML.
+- Real-Time Intelligence: KQL databases para análisis en tiempo real.
+- Power BI: visualización con modo Direct Lake (lee Delta sin importar).
+
+VENTAJA vs HERRAMIENTAS SEPARADAS:
+Antes: ADF (orquestación) + Synapse (procesamiento, con su propio storage) +
+Power BI (visualización, con su propio dataset importado) = 3 copias del dato,
+costos de egress entre servicios, 3 superficies de monitoreo distintas.
+Con Fabric: un solo storage (OneLake), un solo modelo de costos (Capacity SKU),
+governance unificado y Power BI lee directamente con Direct Lake sin importar datos.
+
+SHORTCUTS: permiten apuntar a datos externos (S3, ADLS, GCS) sin copiarlos a OneLake,
+habilitando un enfoque de data mesh sin movimiento de datos.`
+  },
+  {
+    id:'q12', points:3, tag:'MIGRACIÓN ETL', type:'text', minWords:100,
+    text:'Diseña el plan de migración de ETLs en SSIS a Microsoft Fabric. ¿Data Pipeline o Spark Notebooks? ¿Cuándo usarías cada uno? Describe las fases y riesgos principales.',
+    context:'SSIS: Script Task en C#, 8 fuentes heterogéneas (Oracle, flat files, REST, SAP), cargas incrementales con merge. Equipo sin experiencia en Python/Spark.',
+    keywords:[
+      {term:'data pipeline',  pts:1,   aliases:['data pipelines','pipeline activity','copy activity','fabric pipeline']},
+      {term:'notebook',       pts:1,   aliases:['spark notebook','pyspark','jupyter','spark']},
+      {term:'lift and shift', pts:0.5, aliases:['migracion directa','as-is','reutilizar logica']},
+      {term:'fases',          pts:0.5, aliases:['etapas','fase 1','plan por fases','roadmap']},
+      {term:'capacitacion',   pts:0.5, aliases:['entrenamiento','training','upskilling','reskilling']},
+      {term:'piloto',         pts:0.5, aliases:['poc','prueba de concepto','proof of concept','pipeline piloto']},
+    ],
+    idealAnswer:`DECISIÓN DE HERRAMIENTA:
+
+DATA PIPELINE (equivalente a ADF):
+→ Para: orquestación, Copy Activity con conectores nativos a Oracle/SAP/REST/FTP.
+→ Ideal para: packages SSIS que son principalmente movimientos de datos sin lógica compleja.
+→ El equipo puede operar sin saber Python; la configuración es visual/JSON.
+
+SPARK NOTEBOOKS (PySpark):
+→ Para: transformaciones complejas que reemplazan Script Tasks de C#.
+→ Ideal para: lógica de merge personalizada, deduplicación compleja, transformaciones multi-paso.
+→ Requiere capacitación del equipo en PySpark (curva de aprendizaje).
+
+PLAN DE MIGRACIÓN EN 4 FASES:
+
+Fase 1 — Inventario (2 semanas):
+  Catalogar todos los SSIS packages. Clasificar por complejidad: Simple (Copy Activity),
+  Medio (Pipeline + algo de código), Complejo (Notebook PySpark).
+
+Fase 2 — Piloto (4 semanas):
+  Migrar los 3 packages más simples a Data Pipeline.
+  Ejecutar en PARALELO con SSIS y comparar resultados fila a fila.
+
+Fase 3 — Migración por lotes (3 meses):
+  Migrar en orden: simple → medio → complejo.
+  Cada pipeline migrado corre en paralelo 2-4 semanas antes de apagar el package SSIS.
+
+Fase 4 — Capacitación continua:
+  Mientras se migra, el equipo aprende PySpark para los casos complejos.
+  Definir estándares de código y plantillas reutilizables.
+
+RIESGOS PRINCIPALES:
+- Script Tasks en C# no tienen equivalente directo → deben reescribirse en Python.
+- Conexiones a SAP pueden requerir un On-Premise Data Gateway.
+- Equipo sin experiencia Spark puede escribir código ineficiente (full scans, sin particionado).
+- El modelo de costos de Fabric es por Capacity; picos de carga pueden superar el SKU.`
+  },
+  {
+    id:'q13', points:3, tag:'LAKEHOUSE', type:'text', minWords:100,
+    text:'Describe cómo migrarías el modelo semántico de SSAS Tabular a Fabric. ¿Lakehouse vs Warehouse? ¿Delta Tables vs SQL Tables? Estrategia para reemplazar SSRS.',
+    context:'SSAS: 15 medidas DAX, 3 tablas de hechos 50M+ filas c/u, jerarquías multinivel, RLS por departamento. SSRS: 200 usuarios en intranet.',
+    keywords:[
+      {term:'semantic model',  pts:1,   aliases:['modelo semantico','power bi dataset','modelo de datos']},
+      {term:'delta table',     pts:0.5, aliases:['delta tables','delta format','delta parquet']},
+      {term:'sql endpoint',    pts:0.5, aliases:['warehouse','sql analytics endpoint','sql warehouse','t-sql']},
+      {term:'rls',             pts:0.5, aliases:['row level security','seguridad fila','object level security']},
+      {term:'paginated',       pts:0.5, aliases:['informes paginados','paginated report','rdl']},
+      {term:'direct lake',     pts:1,   aliases:['directlake','direct lake mode','modo direct lake']},
+    ],
+    idealAnswer:`LAKEHOUSE vs WAREHOUSE EN FABRIC:
+
+Lakehouse: almacena Delta Tables sobre OneLake.
+  → Acceso vía Spark (notebooks) y SQL Endpoint (T-SQL read-only automático).
+  → Ideal para grandes volúmenes con procesamiento Spark + lectura SQL.
+  → Formato Delta permite time travel, schema evolution, ACID.
+
+Warehouse: motor SQL nativo T-SQL completo.
+  → Tablas administradas con transacciones ACID y DDL/DML completo.
+  → Ideal para analistas SQL puros y cargas incrementales con MERGE.
+
+Para 50M+ filas con procesamiento complejo → LAKEHOUSE con Delta Tables.
+El SQL Endpoint del Lakehouse permite a analistas consultar con T-SQL sin Spark.
+
+MIGRACIÓN DEL MODELO SSAS:
+1. Crear Lakehouse con Delta Tables para las 3 tablas de hechos y dimensiones.
+   Cargar datos históricos desde SQL Server on-premise vía Data Pipeline.
+
+2. Crear Semantic Model en Fabric apuntando a las Delta Tables en modo DIRECT LAKE.
+   Direct Lake lee directamente Delta sin importar datos → máximo rendimiento.
+
+3. Migrar las 15 medidas DAX: la sintaxis DAX es idéntica entre SSAS y Power BI/Fabric.
+   La mayoría migra sin cambios.
+
+4. Reconfigurar RLS en el Semantic Model de Fabric (misma lógica DAX que SSAS Tabular).
+
+5. Recrear jerarquías multinivel en el modelo semántico de Fabric.
+
+ESTRATEGIA SSRS → Power BI Paginated Reports:
+- Los Paginated Reports de Power BI usan formato RDL (mismo que SSRS).
+- Muchos reportes SSRS migran con mínimos cambios usando Power BI Report Builder.
+- Publicar en Fabric workspace; los 200 usuarios acceden vía portal de Power BI
+  en lugar de la intranet, requiriendo licencia Pro o capacidad Premium.
+- Para usuarios sin licencia Pro: publicar en app de Power BI con licencia por capacidad.`
+  }
+  ]
+}
 ];
 
-// ══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════
 // ESTADO GLOBAL
-// ══════════════════════════════════════════════════════════
-let curSection = 0;
-let answers = {};
-let aiEvents = [];
-let startTime = null;
-let timerInterval = null;
-let tabSwitchCount = 0;
-let candidateInfo = {};
-let typingMetrics = {};
-let reportGenerated = '';
+// ═══════════════════════════════════════
+let curSection=0, answers={}, aiEvents=[], startTime=null;
+let timerInterval=null, tabSwitchCount=0;
+let candidateInfo={}, typingMetrics={}, reportGenerated='';
 
-// ══════════════════════════════════════════════════════════
-// INICIO
-// ══════════════════════════════════════════════════════════
-function startAssessment() {
-  const name = document.getElementById('cand-name').value.trim();
-  const exp  = document.getElementById('cand-exp').value.trim();
-  const role = document.getElementById('cand-role').value.trim();
-  if (!name) { alert('Por favor ingresa tu nombre completo.'); return; }
-  candidateInfo = { name, exp, role };
-  startTime = Date.now();
+// ═══════════════════════════════════════
+// MOTOR DE SCORING CON KEYWORDS
+// ═══════════════════════════════════════
+function norm(s){ return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+
+function scoreKeywords(text, keywords){
+  const t = norm(text);
+  let earned=0;
+  const detail=[];
+  keywords.forEach(kw=>{
+    const terms=[kw.term,...(kw.aliases||[])];
+    const found=terms.some(x=>t.includes(norm(x)));
+    detail.push({term:kw.term, pts:kw.pts, found});
+    if(found) earned+=kw.pts;
+  });
+  const maxPts=keywords.reduce((a,k)=>a+k.pts,0);
+  return {ratio:maxPts>0?Math.min(earned/maxPts,1):0, detail, earnedKw:earned, maxKw:maxPts};
+}
+
+function calcQuestion(q){
+  const ans=(answers[q.id]||'').trim();
+  const words=ans.split(/\s+/).filter(w=>w).length;
+  const m=typingMetrics[q.id]||{};
+  const pastePenalty=Math.max(0,1-(m.bigPaste||0)*0.3);
+  const kw=q.keywords&&q.keywords.length>0
+    ?scoreKeywords(ans,q.keywords)
+    :{ratio:0,detail:[],earnedKw:0,maxKw:0};
+  const lenRatio=Math.min(words/q.minWords,1);
+  const finalRatio=q.keywords&&q.keywords.length>0
+    ?(kw.ratio*0.70+lenRatio*0.30)
+    :lenRatio;
+  return {
+    earned:Math.round(q.points*finalRatio*pastePenalty*10)/10,
+    max:q.points,
+    kwDetail:kw.detail,
+    earnedKw:Math.round(kw.earnedKw*10)/10,
+    maxKw:Math.round(kw.maxKw*10)/10,
+    words, minWords:q.minWords,
+    pastePenalty:Math.round(pastePenalty*100)
+  };
+}
+
+function calcAllScores(){
+  const result={};
+  SECTIONS.forEach(sec=>{
+    let secEarned=0; const qDetails=[];
+    sec.questions.forEach(q=>{
+      const qr=calcQuestion(q);
+      secEarned+=qr.earned;
+      qDetails.push({id:q.id,tag:q.tag,text:q.text,...qr});
+    });
+    result[sec.id]={earned:Math.round(secEarned*10)/10,max:sec.weight,label:sec.label,fabric:sec.fabric,qDetails};
+  });
+  return result;
+}
+
+// ═══════════════════════════════════════
+// TIMER & DETECCIÓN
+// ═══════════════════════════════════════
+function startAssessment(){
+  const name=document.getElementById('cand-name').value.trim();
+  if(!name){alert('Por favor ingresa tu nombre completo.');return;}
+  candidateInfo={name,exp:document.getElementById('cand-exp').value.trim(),role:document.getElementById('cand-role').value.trim()};
+  startTime=Date.now();
   document.getElementById('start-screen').classList.add('hidden');
   document.getElementById('assessment-screen').classList.remove('hidden');
-  document.getElementById('header-timer').style.display = 'flex';
-  setupDetection();
-  startTimer(105 * 60);
-  renderProgressNav();
-  renderSection(0);
+  document.getElementById('hdr-timer').style.display='flex';
+  setupDetection(); startTimer(105*60); renderNav(); renderSection(0);
 }
 
-function startTimer(seconds) {
-  let rem = seconds;
-  timerInterval = setInterval(() => {
-    rem--;
-    const m = Math.floor(rem / 60).toString().padStart(2,'0');
-    const s = (rem % 60).toString().padStart(2,'0');
-    const el = document.getElementById('timer-display');
-    el.textContent = m + ':' + s;
-    if (rem <= 300) el.classList.add('danger');
-    if (rem <= 0) { clearInterval(timerInterval); finishAssessment(); }
-  }, 1000);
+function pad(n){return String(n).padStart(2,'0');}
+
+function startTimer(s){
+  let r=s;
+  timerInterval=setInterval(()=>{
+    r--;
+    const el=document.getElementById('timer');
+    el.textContent=pad(Math.floor(r/60))+':'+pad(r%60);
+    if(r<=300)el.classList.add('danger');
+    if(r<=0){clearInterval(timerInterval);finishAssessment();}
+  },1000);
 }
 
-function setupDetection() {
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
+function elapsed(){
+  if(!startTime)return'00:00';
+  const e=Math.floor((Date.now()-startTime)/1000);
+  return pad(Math.floor(e/60))+':'+pad(e%60);
+}
+
+function setupDetection(){
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){
       tabSwitchCount++;
-      const sev = tabSwitchCount >= 5 ? 'high' : tabSwitchCount >= 3 ? 'medium' : 'low';
-      logAI(sev, `CAMBIO DE PESTAÑA/VENTANA #${tabSwitchCount} detectado a las ${elapsed()}`);
+      const sev=tabSwitchCount>=5?'high':tabSwitchCount>=3?'medium':'low';
+      logAI(sev,`CAMBIO DE PESTAÑA #${tabSwitchCount} a las ${elapsed()}`);
     }
   });
-  document.addEventListener('contextmenu', e => {
-    e.preventDefault();
-    logAI('low', `Clic derecho bloqueado a las ${elapsed()}`);
-  });
+  document.addEventListener('contextmenu',e=>{e.preventDefault();logAI('low',`Clic derecho bloqueado a las ${elapsed()}`);});
 }
 
-function logAI(sev, msg) {
-  aiEvents.push({ sev, msg, time: new Date().toISOString() });
-}
+function logAI(sev,msg){aiEvents.push({sev,msg,time:new Date().toISOString()});}
 
-function elapsed() {
-  if (!startTime) return '00:00';
-  const e = Math.floor((Date.now() - startTime) / 1000);
-  return Math.floor(e/60).toString().padStart(2,'0') + ':' + (e % 60).toString().padStart(2,'0');
-}
-
-// ══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════
 // RENDER
-// ══════════════════════════════════════════════════════════
-function renderProgressNav() {
-  const nav = document.getElementById('progress-nav');
-  nav.innerHTML = SECTIONS.map((s, i) => {
-    let cls = '';
-    if (i < curSection) cls = 'done';
-    else if (i === curSection) cls = 'active';
-    if (s.fabric) cls += ' fabric-item';
-    return `<div class="pnav-item ${cls}" onclick="jumpTo(${i})">
-      <div class="pnav-num">${i+1}</div>
-      <div class="pnav-label">${s.label}</div>
-      <div class="pnav-dot"></div>
-    </div>`;
+// ═══════════════════════════════════════
+function renderNav(){
+  document.getElementById('progress-nav').innerHTML=SECTIONS.map((s,i)=>{
+    let c=i<curSection?'done':i===curSection?'active':'';
+    if(s.fabric)c+=' fab-item';
+    return`<div class="pnav-item ${c}" onclick="jumpTo(${i})"><div class="pnav-num">${i+1}</div><div class="pnav-label">${s.label}</div><div class="pnav-dot"></div></div>`;
   }).join('');
 }
 
-function renderSection(idx) {
-  curSection = idx;
-  const sec = SECTIONS[idx];
-  const isFabric = sec.fabric;
+function renderSection(idx){
+  curSection=idx;
+  const sec=SECTIONS[idx];
+  document.getElementById('nav-info').textContent=`Sección ${idx+1} de ${SECTIONS.length} · ${sec.weight} pts`;
+  const nb=document.getElementById('btn-next');
+  nb.textContent=idx===SECTIONS.length-1?'Finalizar ✓':'Siguiente →';
+  nb.className='btn-next'+(idx===SECTIONS.length-1?' fin':sec.fabric?' fab':'');
 
-  document.getElementById('nav-info').textContent = `Sección ${idx+1} de ${SECTIONS.length} · ${sec.weight} pts`;
-  const nb = document.getElementById('btn-next');
-  nb.textContent = idx === SECTIONS.length - 1 ? 'Finalizar ✓' : 'Siguiente →';
-  nb.className = 'btn-next' + (idx === SECTIONS.length - 1 ? ' finish' : isFabric ? ' fabric' : '');
+  const fabBadge=sec.fabric
+    ?`<div style="display:inline-flex;align-items:center;gap:8px;background:var(--celeste-lt);border:1px solid var(--celeste);border-radius:6px;padding:5px 12px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#0052B4;margin-bottom:12px;">★ Microsoft Fabric — Sección Especializada</div>`
+    :'';
 
-  const fabricBadge = isFabric
-    ? `<div style="display:inline-flex;align-items:center;gap:8px;background:var(--celeste-lt);border:1px solid var(--celeste);border-radius:6px;padding:5px 12px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#0052B4;margin-bottom:12px;">
-        ★ Microsoft Fabric — Sección Especializada
-       </div>`
-    : '';
-
-  const qHtml = sec.questions.map(q => {
-    const saved = answers[q.id] || '';
-    const wc = saved.trim().split(/\s+/).filter(w=>w).length;
-    const tagHtml = q.tag ? `<span class="q-tag">${q.tag}</span>` : '';
-    return `<div class="q-card ${isFabric ? 'fabric-q' : ''}">
+  const qHtml=sec.questions.map(q=>{
+    const saved=answers[q.id]||'';
+    const wc=saved.trim().split(/\s+/).filter(w=>w).length;
+    return`<div class="q-card${sec.fabric?' fab-q':''}">
       <div class="q-meta">
         <span class="q-num">P${q.id.replace('q','')}</span>
-        ${tagHtml}
-        <span class="q-pts ${isFabric ? 'q-fabric' : ''}">${q.points} pts</span>
+        ${q.tag?`<span class="q-tag">${q.tag}</span>`:''}
+        <span class="q-pts${sec.fabric?' fab':''}">${q.points} pts</span>
       </div>
       <div class="q-text">${q.text.replace(/\n/g,'<br>')}</div>
-      ${q.context ? `<div class="q-context">Contexto: ${q.context}</div>` : ''}
-      <div>
-        <textarea class="q-textarea" id="ans-${q.id}"
-          placeholder="${q.type==='code' ? '// Escribe tu código aquí...' : 'Escribe tu respuesta aquí...'}"
-          oninput="onType('${q.id}', this.value, ${q.minWords})"
-          onpaste="onPaste('${q.id}', event)"
-        >${saved}</textarea>
-        <div class="q-metrics" id="metrics-${q.id}">
-          <span class="metric ${wc >= q.minWords ? 'ok' : 'warn'}" id="wc-${q.id}">Palabras: ${wc}/${q.minWords}</span>
-          <span class="metric" id="rhythm-${q.id}">Ritmo: —</span>
-          <span class="metric" id="paste-${q.id}">Paste: 0×</span>
-        </div>
-        <div class="suspicion-banner" id="sb-${q.id}"></div>
+      ${q.context?`<div class="q-ctx">Contexto: ${q.context}</div>`:''}
+      <textarea class="q-textarea" id="ans-${q.id}"
+        placeholder="${q.type==='code'?'// Escribe tu código aquí...':'Escribe tu respuesta aquí...'}"
+        oninput="onType('${q.id}',this.value,${q.minWords})"
+        onpaste="onPaste('${q.id}',event)"
+      >${saved}</textarea>
+      <div class="q-metrics" id="met-${q.id}">
+        <span class="met ${wc>=q.minWords?'ok':'warn'}" id="wc-${q.id}">Palabras: ${wc}/${q.minWords}</span>
+        <span class="met" id="rh-${q.id}">Ritmo: —</span>
+        <span class="met" id="ps-${q.id}">Paste: 0×</span>
       </div>
+      <div class="sus-banner" id="sb-${q.id}"></div>
     </div>`;
   }).join('');
 
-  document.getElementById('section-content').innerHTML = `
-    ${fabricBadge}
-    <div class="section-header ${isFabric ? 'fabric-header' : ''}">
-      <div class="sh-left">
-        <div class="sh-eyebrow">Sección ${idx+1} de ${SECTIONS.length}</div>
+  document.getElementById('section-content').innerHTML=`${fabBadge}
+    <div class="sec-header${sec.fabric?' fab-hdr':''}">
+      <div>
+        <div class="sh-eye">Sección ${idx+1} de ${SECTIONS.length}</div>
         <div class="sh-title">${sec.label}</div>
         <div class="sh-sub">${sec.questions.length} preguntas · ${sec.weight} puntos</div>
       </div>
-      <div class="sh-badge"><span class="pts">${sec.weight}</span><span class="ptslabel">PUNTOS</span></div>
-    </div>
-    ${qHtml}
-  `;
+      <div class="sh-badge"><span class="pts">${sec.weight}</span><span class="ptsl">PUNTOS</span></div>
+    </div>${qHtml}`;
 
-  sec.questions.forEach(q => initMetrics(q));
-  renderProgressNav();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  sec.questions.forEach(q=>initM(q));
+  renderNav();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function initMetrics(q) {
-  if (!typingMetrics[q.id]) typingMetrics[q.id] = { ks:0, lastKey:Date.now(), pasteCount:0, bigPaste:0, suspicion:0 };
-  const ta = document.getElementById('ans-' + q.id);
-  if (!ta) return;
-  ta.addEventListener('keydown', () => {
-    const m = typingMetrics[q.id];
-    m.ks++;
-    m.lastKey = Date.now();
-  });
+function initM(q){
+  if(!typingMetrics[q.id])typingMetrics[q.id]={ks:0,lastKey:Date.now(),pasteCount:0,bigPaste:0,suspicion:0};
+  const ta=document.getElementById('ans-'+q.id);
+  if(!ta)return;
+  ta.addEventListener('keydown',()=>{typingMetrics[q.id].ks++;typingMetrics[q.id].lastKey=Date.now();});
 }
 
-function onType(qid, val, minWords) {
-  answers[qid] = val;
-  const words = val.trim().split(/\s+/).filter(w=>w).length;
-  const wcEl = document.getElementById('wc-' + qid);
-  if (wcEl) {
-    wcEl.textContent = `Palabras: ${words}/${minWords}`;
-    wcEl.className = 'metric ' + (words >= minWords ? 'ok' : 'warn');
+function onType(qid,val,minWords){
+  answers[qid]=val;
+  const words=val.trim().split(/\s+/).filter(w=>w).length;
+  const wcEl=document.getElementById('wc-'+qid);
+  if(wcEl){wcEl.textContent=`Palabras: ${words}/${minWords}`;wcEl.className='met '+(words>=minWords?'ok':'warn');}
+  const m=typingMetrics[qid];
+  if(m&&m.ks>0){
+    const r=words/Math.max(m.ks,1);
+    const rEl=document.getElementById('rh-'+qid);
+    if(rEl){
+      if(r>0.8){rEl.textContent='⚠ Ritmo anómalo';rEl.className='met warn';if(r>1.2)logAI('medium',`Ritmo anómalo P${qid.replace('q','')} ratio ${r.toFixed(2)} a las ${elapsed()}`);}
+      else{rEl.textContent='Ritmo: normal';rEl.className='met ok';}
+    }
   }
-  const m = typingMetrics[qid];
-  if (m && m.ks > 0) {
-    const ratio = words / Math.max(m.ks, 1);
-    const rEl = document.getElementById('rhythm-' + qid);
-    if (rEl) {
-      if (ratio > 0.8) {
-        rEl.textContent = '⚠ Ritmo anómalo';
-        rEl.className = 'metric warn';
-        if (ratio > 1.2) logAI('medium', `Ritmo anómalo en P${qid.replace('q','')} (ratio ${ratio.toFixed(2)}) a las ${elapsed()}`);
-      } else {
-        rEl.textContent = 'Ritmo: normal';
-        rEl.className = 'metric ok';
+}
+
+function onPaste(qid,event){
+  const m=typingMetrics[qid]||(typingMetrics[qid]={pasteCount:0,bigPaste:0,suspicion:0});
+  const pasted=(event.clipboardData||window.clipboardData).getData('text');
+  const words=pasted.trim().split(/\s+/).filter(w=>w).length;
+  m.pasteCount=(m.pasteCount||0)+1;
+  const pEl=document.getElementById('ps-'+qid);
+  if(pEl)pEl.textContent=`Paste: ${m.pasteCount}×`;
+  if(words>30){
+    m.bigPaste=(m.bigPaste||0)+1;
+    m.suspicion=(m.suspicion||0)+(words>100?50:25);
+    logAI(words>100?'high':'medium',`PASTE MASIVO P${qid.replace('q','')} (${words} palabras) a las ${elapsed()}`);
+    if(m.suspicion>=50){
+      if(pEl)pEl.className='met danger';
+      const sb=document.getElementById('sb-'+qid);
+      if(sb){sb.style.display='block';sb.textContent=`⚠ Alerta: contenido pegado (${words} palabras). Evento registrado en el reporte.`;}
+    }
+  }
+}
+
+function saveAnswers(){SECTIONS[curSection].questions.forEach(q=>{const ta=document.getElementById('ans-'+q.id);if(ta)answers[q.id]=ta.value;});}
+function jumpTo(idx){saveAnswers();renderSection(idx);}
+function nextSection(){saveAnswers();if(curSection>=SECTIONS.length-1)finishAssessment();else renderSection(curSection+1);}
+function prevSection(){saveAnswers();if(curSection>0)renderSection(curSection-1);}
+
+// ═══════════════════════════════════════
+// GENERADOR DE REPORTE TXT
+// ═══════════════════════════════════════
+function generateReport(){
+  const sc=calcAllScores();
+  const total=Object.values(sc).reduce((a,s)=>a+s.earned,0);
+  const coreTotal=Object.values(sc).filter(s=>!s.fabric).reduce((a,s)=>a+s.earned,0);
+  const fabTotal=sc['fabric']?sc['fabric'].earned:0;
+
+  let verdict='';
+  if(coreTotal>=80&&fabTotal>=8)      verdict='APROBADO — Arquitecto Fabric Senior Calificado';
+  else if(coreTotal>=80&&fabTotal>=5) verdict='APROBADO — Perfil sólido, Fabric intermedio';
+  else if(coreTotal>=80)              verdict='APROBADO — Requiere capacitación en Fabric';
+  else if(coreTotal>=60)              verdict='APROBADO CON RESERVAS — Requiere entrevista adicional';
+  else                                verdict='NO APROBADO — Experiencia insuficiente';
+
+  let r=`================================================================================
+REPORTE DE EVALUACIÓN — DATA ARCHITECT + MICROSOFT FABRIC
+================================================================================
+Generado   : ${new Date().toLocaleString('es-SV')}
+Candidato  : ${candidateInfo.name||'-'}
+Experiencia: ${candidateInfo.exp||'-'}
+Puesto     : ${candidateInfo.role||'-'}
+
+PUNTUACIÓN AUTOMÁTICA : ${total}/110
+VEREDICTO             : ${verdict}
+NOTA: El puntaje automático es indicativo (keywords + extensión).
+      Revisar respuestas vs respuesta de referencia para nota final.
+
+DESGLOSE POR SECCIÓN
+────────────────────────────────────────────────────────────────────────────────
+`;
+  Object.values(sc).forEach(s=>{
+    const p=Math.round(s.earned/s.max*100);
+    const b='█'.repeat(Math.round(p/10))+'░'.repeat(10-Math.round(p/10));
+    r+=`${s.fabric?'[FABRIC] ':''}${s.label.padEnd(26)} ${String(s.earned).padStart(5)}/${s.max}  [${b}] ${p}%\n`;
+  });
+
+  r+=`
+════════════════════════════════════════════════════════════════════════════════
+ANÁLISIS DETALLADO POR PREGUNTA — USO EXCLUSIVO EVALUADOR
+════════════════════════════════════════════════════════════════════════════════
+METODOLOGÍA: 70% keywords técnicas + 30% extensión mínima
+             Penalización hasta -30% por paste masivo detectado
+`;
+
+  SECTIONS.forEach((sec,si)=>{
+    r+=`\n╔══════════════════════════════════════════════════════════════════════╗\n`;
+    r+=`║  SECCIÓN ${si+1}: ${sec.label.toUpperCase()}${sec.fabric?' [MICROSOFT FABRIC]':''}`.padEnd(71)+'║\n';
+    r+=`╚══════════════════════════════════════════════════════════════════════╝\n`;
+
+    sec.questions.forEach((q,qi)=>{
+      const qd=sc[sec.id].qDetails[qi];
+      const p=Math.round(qd.earned/qd.max*100);
+      r+=`\n  ┌─────────────────────────────────────────────────────────────────────\n`;
+      r+=`  │ P${qd.id.replace('q','')}${qd.tag?` [${qd.tag}]`:''} — PUNTAJE AUTOMÁTICO: ${qd.earned}/${qd.max} pts (${p}%)\n`;
+      r+=`  │ Palabras: ${qd.words}/${qd.minWords} mínimo | Factor paste: ${qd.pastePenalty}%\n`;
+
+      if(qd.kwDetail&&qd.kwDetail.length>0){
+        const found=qd.kwDetail.filter(k=>k.found);
+        const miss=qd.kwDetail.filter(k=>!k.found);
+        r+=`  │ Keywords: ${found.length}/${qd.kwDetail.length} detectadas\n`;
+        r+=`  │\n  │  MENCIONADAS:\n`;
+        if(!found.length)r+=`  │    — Ninguna keyword técnica detectada\n`;
+        found.forEach(k=>r+=`  │    ✓ "${k.term}"  +${k.pts} pts\n`);
+        r+=`  │\n  │  AUSENTES (conceptos que debió incluir):\n`;
+        if(!miss.length)r+=`  │    — Todas las keywords presentes ✓\n`;
+        miss.forEach(k=>r+=`  │    ✗ "${k.term}"  (${k.pts} pts no obtenidos)\n`);
       }
-    }
-  }
-}
 
-function onPaste(qid, event) {
-  const m = typingMetrics[qid] || (typingMetrics[qid] = { pasteCount:0, bigPaste:0, suspicion:0 });
-  const pasted = (event.clipboardData || window.clipboardData).getData('text');
-  const words = pasted.trim().split(/\s+/).filter(w=>w).length;
-  m.pasteCount = (m.pasteCount || 0) + 1;
-  const pEl = document.getElementById('paste-' + qid);
-  if (pEl) { pEl.textContent = `Paste: ${m.pasteCount}×`; }
-  if (words > 30) {
-    m.bigPaste = (m.bigPaste || 0) + 1;
-    m.suspicion = (m.suspicion || 0) + (words > 100 ? 50 : 25);
-    logAI(words > 100 ? 'high' : 'medium', `PASTE MASIVO en P${qid.replace('q','')} (${words} palabras) a las ${elapsed()}`);
-    if (m.suspicion >= 50) {
-      if (pEl) pEl.className = 'metric danger';
-      const sb = document.getElementById('sb-' + qid);
-      if (sb) { sb.style.display = 'block'; sb.textContent = `⚠ Alerta: se detectó contenido pegado (${words} palabras). Evento registrado en el reporte.`; }
-    }
-  }
-}
+      r+=`  │\n  │── RESPUESTA DEL CANDIDATO:\n`;
+      (answers[q.id]||'[Sin respuesta]').split('\n').forEach(l=>r+=`  │  ${l}\n`);
 
-function saveCurrentAnswers() {
-  SECTIONS[curSection].questions.forEach(q => {
-    const ta = document.getElementById('ans-' + q.id);
-    if (ta) answers[q.id] = ta.value;
-  });
-}
+      r+=`  │\n  │── RESPUESTA DE REFERENCIA (para comparación del evaluador):\n`;
+      q.idealAnswer.split('\n').forEach(l=>r+=`  │  ${l}\n`);
 
-function jumpTo(idx) { saveCurrentAnswers(); renderSection(idx); }
-function nextSection() { saveCurrentAnswers(); if (curSection >= SECTIONS.length - 1) finishAssessment(); else renderSection(curSection + 1); }
-function prevSection() { saveCurrentAnswers(); if (curSection > 0) renderSection(curSection - 1); }
-
-// ══════════════════════════════════════════════════════════
-// CALCULAR PUNTAJES
-// ══════════════════════════════════════════════════════════
-function calcScores() {
-  const sc = {};
-  SECTIONS.forEach(sec => {
-    let earned = 0;
-    sec.questions.forEach(q => {
-      const ans = (answers[q.id] || '').trim();
-      const words = ans.split(/\s+/).filter(w=>w).length;
-      const ratio = Math.min(words / q.minWords, 1);
-      const m = typingMetrics[q.id] || {};
-      const ps = Math.max(0, 1 - (m.bigPaste || 0) * 0.3);
-      earned += Math.round(q.points * ratio * ps);
-    });
-    sc[sec.id] = { earned, max: sec.weight, label: sec.label, fabric: sec.fabric };
-  });
-  return sc;
-}
-
-// ══════════════════════════════════════════════════════════
-// GENERAR REPORTE TXT
-// ══════════════════════════════════════════════════════════
-function generateReport() {
-  const sc = calcScores();
-  const total = Object.values(sc).reduce((a,s) => a + s.earned, 0);
-  let r = `================================================================================\nREPORTE DE EVALUACIÓN TÉCNICA — DATA ARCHITECT + MICROSOFT FABRIC\n================================================================================\nGenerado   : ${new Date().toLocaleString('es-SV')}\nCandidato  : ${candidateInfo.name || '-'}\nExperiencia: ${candidateInfo.exp || '-'}\nPuesto     : ${candidateInfo.role || '-'}\n\nPUNTUACIÓN FINAL: ${total}/110\n`;
-  let verdict = '';
-  const coreTotal = Object.values(sc).filter(s=>!s.fabric).reduce((a,s)=>a+s.earned,0);
-  const fabTotal  = sc['fabric'] ? sc['fabric'].earned : 0;
-  if (coreTotal>=80&&fabTotal>=8) verdict='APROBADO — Arquitecto Fabric Senior Calificado';
-  else if (coreTotal>=80&&fabTotal>=5) verdict='APROBADO — Perfil sólido, conocimiento Fabric intermedio';
-  else if (coreTotal>=80) verdict='APROBADO — Requiere capacitación en Fabric';
-  else if (coreTotal>=60) verdict='APROBADO CON RESERVAS — Requiere entrevista adicional';
-  else verdict='NO APROBADO — Experiencia insuficiente para el rol';
-  r += `VEREDICTO  : ${verdict}\n\nDESGLOSE POR SECCIÓN\n------------------------------------------------------------\n`;
-  Object.values(sc).forEach(s => { r += `${(s.fabric?'[FABRIC] ':'')}${s.label.padEnd(28)} ${s.earned}/${s.max} pts\n`; });
-  r += `\n\nRESPUESTAS COMPLETAS\n------------------------------------------------------------\n`;
-  SECTIONS.forEach((sec, si) => {
-    r += `\n\n─── SECCIÓN ${si+1}: ${sec.label.toUpperCase()}${sec.fabric?' [MICROSOFT FABRIC]':''} ───\n`;
-    sec.questions.forEach(q => {
-      const ans = answers[q.id] || '[Sin respuesta]';
-      const words = ans.trim().split(/\s+/).filter(w=>w).length;
-      const m = typingMetrics[q.id] || {};
-      r += `\nP${q.id.replace('q','')}${q.tag?` [${q.tag}]`:''}) ${q.text}\n`;
-      r += `[Palabras: ${words} | Pastes: ${m.pasteCount||0} | Pastes masivos: ${m.bigPaste||0}]\n`;
-      r += `RESPUESTA:\n${ans}\n`;
+      r+=`  │\n  │  NOTA MANUAL DEL EVALUADOR: _____ / ${qd.max}\n`;
+      r+=`  │  Comentario: _____________________________________________\n`;
+      r+=`  └─────────────────────────────────────────────────────────────────────\n`;
     });
   });
-  r += `\n\nREPORTE DE COMPORTAMIENTO / DETECCIÓN IA\n------------------------------------------------------------\nCambios de pestaña: ${tabSwitchCount}\n`;
-  if (aiEvents.length === 0) { r += 'Sin eventos sospechosos detectados.\n'; }
-  else { aiEvents.forEach(e => { r += `[${e.sev.toUpperCase()}] ${e.msg}\n  Timestamp: ${e.time}\n`; }); }
-  r += `\n================================================================================\nFIN DEL REPORTE\n================================================================================`;
+
+  r+=`\n════════════════════════════════════════════════════════════════════════════════
+REPORTE DE COMPORTAMIENTO / DETECCIÓN IA
+════════════════════════════════════════════════════════════════════════════════
+Cambios de pestaña/ventana detectados: ${tabSwitchCount}
+`;
+  if(!aiEvents.length)r+='Sin eventos sospechosos detectados.\n';
+  else aiEvents.forEach(e=>r+=`[${e.sev.toUpperCase()}] ${e.msg}\n  Timestamp: ${e.time}\n`);
+
+  r+=`\n================================================================================\nFIN DEL REPORTE\n================================================================================`;
   return r;
 }
 
-// ══════════════════════════════════════════════════════════
-// EMAILJS — ENVÍO AUTOMÁTICO
-// ══════════════════════════════════════════════════════════
-function sendEmail(reportText) {
-  const candidateName = candidateInfo.name || 'Sin nombre';
-  const statusEl = document.getElementById('email-status');
-  statusEl.className = 'email-status sending';
-  statusEl.style.display = 'block';
-  statusEl.textContent = '⏳ Enviando reporte por correo...';
-
-  const templateParams = {
-    candidate_name:  candidateName,
-    report_content:  reportText
-  };
-
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-    .then(function(response) {
-      console.log('EmailJS OK:', response.status, response.text);
-      statusEl.className = 'email-status ok';
-      statusEl.textContent = '✓ Reporte enviado por correo correctamente.';
-    }, function(error) {
-      console.error('EmailJS Error:', error);
-      statusEl.className = 'email-status fail';
-      statusEl.textContent = '✗ Error al enviar por correo. Descarga el archivo TXT manualmente.';
-    });
+// ═══════════════════════════════════════
+// EMAILJS
+// ═══════════════════════════════════════
+function sendEmail(txt){
+  const st=document.getElementById('email-st');
+  st.className='email-st sending'; st.style.display='block';
+  st.textContent='⏳ Enviando reporte al evaluador...';
+  emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{
+    candidate_name:candidateInfo.name||'Sin nombre',
+    report_content:txt
+  }).then(()=>{
+    st.className='email-st ok';
+    st.textContent='✓ Reporte enviado al evaluador correctamente.';
+  },(err)=>{
+    console.error(err);
+    st.className='email-st fail';
+    st.textContent='✗ Error al enviar. Descarga el archivo TXT manualmente.';
+  });
 }
+function resendEmail(){if(reportGenerated)sendEmail(reportGenerated);}
 
-function resendEmail() {
-  if (reportGenerated) sendEmail(reportGenerated);
-}
-
-// ══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════
 // FINALIZAR
-// ══════════════════════════════════════════════════════════
-function finishAssessment() {
-  clearInterval(timerInterval);
-  saveCurrentAnswers();
+// ═══════════════════════════════════════
+function finishAssessment(){
+  clearInterval(timerInterval); saveAnswers();
   document.getElementById('assessment-screen').classList.add('hidden');
   document.getElementById('result-screen').classList.remove('hidden');
 
-  const sc = calcScores();
-  const total = Object.values(sc).reduce((a,s) => a + s.earned, 0);
-  const coreTotal = Object.values(sc).filter(s=>!s.fabric).reduce((a,s)=>a+s.earned,0);
-  const fabTotal  = sc['fabric'] ? sc['fabric'].earned : 0;
+  const sc=calcAllScores();
+  const total=Object.values(sc).reduce((a,s)=>a+s.earned,0);
+  const coreTotal=Object.values(sc).filter(s=>!s.fabric).reduce((a,s)=>a+s.earned,0);
+  const fabTotal=sc['fabric']?sc['fabric'].earned:0;
 
-  document.getElementById('final-score').textContent = `${total}/110`;
+  document.getElementById('final-score').textContent=`${total}/110`;
 
-  let verdict, chip;
-if (coreTotal >= 80 && fabTotal >= 8) { 
-      verdict = 'Perfil Senior: Dominio avanzado en Arquitectura y Fabric'; 
-      chip = 'EXCELENTE'; 
-  }
-  else if (coreTotal >= 80 && fabTotal >= 5) { 
-      verdict = 'Perfil Competente: Sólidas bases con enfoque en Fabric'; 
-      chip = 'RECOMENDADO'; 
-  }
-  else if (coreTotal >= 80) { 
-      verdict = 'Perfil Técnico Sólido: Pendiente especialización en Fabric'; 
-      chip = 'PROCESO ACTIVO'; 
-  }
-  else if (coreTotal >= 60) { 
-      verdict = 'Evaluación Técnica en Revisión: Análisis de brechas requerido'; 
-      chip = 'EN EVALUACIÓN'; 
-  }
-  else { 
-      verdict = 'Proceso Finalizado: Perfil almacenado en base de datos'; 
-      chip = 'CERRADO'; 
-  }                          
+  let verdict,chip,chipSt='';
+  if(coreTotal>=80&&fabTotal>=8){verdict='Arquitecto Fabric Senior Calificado';chip='APROBADO';}
+  else if(coreTotal>=80&&fabTotal>=5){verdict='Perfil sólido · Fabric intermedio';chip='APROBADO';}
+  else if(coreTotal>=80){verdict='Aprobado · Requiere capacitación Fabric';chip='APROBADO';}
+  else if(coreTotal>=60){verdict='Requiere entrevista adicional';chip='CON RESERVAS';chipSt='background:#FFFBEB;color:#92400E;';}
+  else{verdict='Experiencia insuficiente';chip='NO APROBADO';chipSt='background:#FEF2F2;color:#991B1B;';}
 
-  document.getElementById('verdict-text').textContent = verdict;
-  const vc = document.getElementById('verdict-chip');
-  vc.textContent = chip;
-  if (chip === 'NO APROBADO') vc.style.background = '#FEF2F2', vc.style.color = '#991B1B';
-  if (chip === 'CON RESERVAS') vc.style.background = '#FFFBEB', vc.style.color = '#92400E';
+  document.getElementById('verdict-text').textContent=verdict;
+  const vc=document.getElementById('verdict-chip');
+  vc.textContent=chip; if(chipSt)vc.setAttribute('style',chipSt);
 
-  // Score cards core
-  document.getElementById('score-grid-core').innerHTML = Object.values(sc).filter(s=>!s.fabric).map(s=>`
-    <div class="score-card">
-      <div class="sv">${s.earned}/${s.max}</div>
-      <div class="sl">${s.label}</div>
-    </div>`).join('');
-
-  // Score cards fabric
-  if (sc['fabric']) {
-    const qs = SECTIONS[5].questions;
-    document.getElementById('score-grid-fabric').innerHTML = qs.map(q => {
-      const ans = (answers[q.id]||'').trim();
-      const words = ans.split(/\s+/).filter(w=>w).length;
-      const ratio = Math.min(words/q.minWords, 1);
-      const m = typingMetrics[q.id]||{};
-      const ps = Math.max(0, 1-(m.bigPaste||0)*0.3);
-      const earned = Math.round(q.points * ratio * ps);
-      return `<div class="score-card fabric-sc">
-        <div class="sv">${earned}/${q.points}</div>
-        <div class="sl">${q.tag||'Fabric'}</div>
-      </div>`;
+  document.getElementById('score-grid-core').innerHTML=
+    Object.values(sc).filter(s=>!s.fabric).map(s=>{
+      const p=Math.round(s.earned/s.max*100);
+      return`<div class="sc-card"><div class="sc-val">${s.earned}/${s.max}</div><div class="sc-lbl">${s.label}</div><div class="sc-pct">${p}%</div></div>`;
     }).join('');
+
+  if(sc['fabric']){
+    document.getElementById('score-grid-fabric').innerHTML=
+      sc['fabric'].qDetails.map(qd=>{
+        const p=Math.round(qd.earned/qd.max*100);
+        return`<div class="sc-card fab"><div class="sc-val">${qd.earned}/${qd.max}</div><div class="sc-lbl">${qd.tag||'Fabric'}</div><div class="sc-pct">${p}%</div></div>`;
+      }).join('');
   }
 
-  // AI events
-  const evList = document.getElementById('ai-events-list');
-  evList.innerHTML = aiEvents.length === 0
-    ? '<div class="no-events">Sin eventos sospechosos detectados.</div>'
-    : aiEvents.map(e => `<div class="ai-event ${e.sev}">[${e.sev.toUpperCase()}] ${e.msg}</div>`).join('');
+  const evList=document.getElementById('ai-events-list');
+  evList.innerHTML=!aiEvents.length
+    ?'<div class="no-ev">Sin eventos sospechosos detectados.</div>'
+    :aiEvents.map(e=>`<div class="ai-ev ${e.sev}">[${e.sev.toUpperCase()}] ${e.msg}</div>`).join('');
 
-  // Generar y enviar reporte
-  reportGenerated = generateReport();
+  reportGenerated=generateReport();
   sendEmail(reportGenerated);
   downloadReport();
 }
 
-// ══════════════════════════════════════════════════════════
-// DESCARGA TXT
-// ══════════════════════════════════════════════════════════
-function downloadReport() {
-  const report = reportGenerated || generateReport();
-  const blob = new Blob([report], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  const safeName = (candidateInfo.name || 'candidato').replace(/\s+/g, '_');
-  a.download = `evaluacion_${safeName}_${new Date().toISOString().split('T')[0]}.txt`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+function downloadReport(){
+  const r=reportGenerated||generateReport();
+  const b=new Blob([r],{type:'text/plain;charset=utf-8'});
+  const u=URL.createObjectURL(b);
+  const a=document.createElement('a');
+  a.href=u;
+  a.download=`evaluacion_${(candidateInfo.name||'candidato').replace(/\s+/g,'_')}_${new Date().toISOString().split('T')[0]}.txt`;
+  document.body.appendChild(a);a.click();
+  document.body.removeChild(a);URL.revokeObjectURL(u);
 }
 </script>
 </body>
