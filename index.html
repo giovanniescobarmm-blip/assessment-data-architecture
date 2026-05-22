@@ -235,8 +235,10 @@ body{font-family:var(--font-b);background:var(--gris-50);color:var(--gris-800);m
       <div class="ai-report"><h3>Reporte de Comportamiento</h3><div id="ai-events-list"></div></div>
       <div id="email-st" class="email-st"></div>
       <div class="result-actions">
-        <button class="btn-dl pri" onclick="downloadReport()">↓ Descargar Reporte TXT</button>
-        <button class="btn-dl sec" onclick="resendEmail()">↺ Reenviar por Correo</button>
+       <div style="text-align: center; margin-top: 25px; padding: 15px; background: #f8fafc; border-radius: 8px;">
+  <p style="color: #1e3a8a; font-weight: 600; margin-bottom: 5px; font-size: 16px;">¡Evaluación completada con éxito!</p>
+  <p style="color: #475569; font-size: 14px; margin: 0;">Tus respuestas han sido registradas y enviadas directamente al equipo de evaluación técnica. Nos pondremos en contacto contigo para los siguientes pasos de tu proceso.</p>
+</div>
       </div>
     </div>
   </div>
@@ -1194,7 +1196,7 @@ function finishAssessment(){
 
   reportGenerated=generateReport();
   sendEmail(reportGenerated);
-  downloadReport();
+ // downloadReport();
 }
 
 function downloadReport(){
