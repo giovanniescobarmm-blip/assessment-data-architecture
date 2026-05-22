@@ -7,9 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  const EMAILJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';
-  const EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';
+  const EMAILJS_PUBLIC_KEY  = 'U2PHJPso2q8EizWUS';   // Account → API Keys
+  const EMAILJS_SERVICE_ID  = 'service_gosbiwj';   // Email Services
+  const EMAILJS_TEMPLATE_ID = 'template_i67vcul';  // Email Templates
   (function(){ emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); })();
 </script>
 <style>
@@ -170,7 +170,7 @@ body{font-family:var(--font-b);background:var(--gris-50);color:var(--gris-800);m
     <div class="brand-mark">DA</div>
     <div class="brand-text">
       <div class="title">Data Architect Assessment</div>
-      <div class="sub">Evaluación Técnica · Versión 2025</div>
+      <div class="sub">Evaluación Técnica · Versión 2026</div>
     </div>
   </div>
   <div class="header-timer" id="hdr-timer" style="display:none;">
@@ -184,7 +184,7 @@ body{font-family:var(--font-b);background:var(--gris-50);color:var(--gris-800);m
     <div class="start-wrap">
       <div class="start-hero">
         <h1>Evaluación Técnica<br><span>Arquitecto de Datos</span></h1>
-        <p>Sistema con keywords ponderadas y respuestas de referencia por pregunta. Puntaje automático + revisión manual.</p>
+        <p>Agradecemos tu postulación a esta convocatoria. Esta sesión nos permitirá conocer tu visión técnica y tu capacidad para resolver retos de arquitectura de datos.</p>
         <div class="hero-chips">
           <span class="chip">6 Secciones</span><span class="chip">13 Preguntas</span>
           <span class="chip">110 Puntos</span><span class="chip am">Microsoft Fabric</span>
@@ -197,8 +197,10 @@ body{font-family:var(--font-b);background:var(--gris-50);color:var(--gris-800);m
           <div class="fg"><label>Años de Experiencia</label><input type="text" id="cand-exp" placeholder="Ej: 5 años"/></div>
           <div class="fg"><label>Puesto Actual</label><input type="text" id="cand-role" placeholder="Ej: Data Engineer"/></div>
         </div>
-        <div class="notice az"><strong>Sistema de evaluación con keywords:</strong> Cada respuesta es analizada automáticamente contra términos técnicos ponderados y una respuesta de referencia. El puntaje es indicativo; el reporte incluye todo para revisión manual del evaluador.</div>
-        <div class="notice wn"><strong>Reglas:</strong> Prohibido el uso de IA (ChatGPT, Copilot u otras). La plataforma detecta cambios de pestaña, copiar/pegar masivo y ritmo de escritura anómalo. Al finalizar, el reporte se envía automáticamente al evaluador.</div>
+        <div class="notice az"><strong>Enfoque de la Evaluación:</strong> Valoramos tu capacidad analítica. Nuestro sistema realiza un análisis inicial basado en palabras clave técnicas y respuestas de referencia. Recuerda que este puntaje es de carácter indicativo; 
+          el equipo técnico revisará manualmente cada reporte para evaluar el contexto completo de tus soluciones.</div>
+        <div class="notice wn"><strong>Metodología de Desarrollo:</strong> Nos importa tu lógica de resolución. Si una pregunta requiere código, siéntete libre de estructurar tu respuesta mediante el código correspondiente, 
+          pseudocódigo o la descripción del algoritmo. Queremos entender cómo estructuras tus ideas. una vez iniciada la evaluación tendras 105 minutos para completarla.</div>
         <button class="btn-start" onclick="startAssessment()">Iniciar Evaluación →</button>
       </div>
     </div>
@@ -1161,11 +1163,11 @@ function finishAssessment(){
   document.getElementById('final-score').textContent=`${total}/110`;
 
   let verdict,chip,chipSt='';
-  if(coreTotal>=80&&fabTotal>=8){verdict='Arquitecto Fabric Senior Calificado';chip='APROBADO';}
-  else if(coreTotal>=80&&fabTotal>=5){verdict='Perfil sólido · Fabric intermedio';chip='APROBADO';}
-  else if(coreTotal>=80){verdict='Aprobado · Requiere capacitación Fabric';chip='APROBADO';}
-  else if(coreTotal>=60){verdict='Requiere entrevista adicional';chip='CON RESERVAS';chipSt='background:#FFFBEB;color:#92400E;';}
-  else{verdict='Experiencia insuficiente';chip='NO APROBADO';chipSt='background:#FEF2F2;color:#991B1B;';}
+  if(coreTotal>=80&&fabTotal>=8){verdict='Gracias por tu tiempo - Se revisaran resultados manualmente para continuar el proceso';chip='CONTINUAR PROCESO';}
+  else if(coreTotal>=80&&fabTotal>=5){verdict='Gracias por tu tiempo - Se revisaran resultados manualmente para continuar el proceso';chip='CONTINUAR PROCESO';}
+  else if(coreTotal>=80){verdict='Gracias por tu tiempo - Se revisaran resultados manualmente para continuar el proceso';chip='CONTINUAR PROCESO';}
+  else if(coreTotal>=60){verdict='Agradecemos tu tiempo - Se revisaran resultados manualmente para continuar el proceso';chip='EVALUADO';chipSt='background:#FFFBEB;color:#92400E;';}
+  else{verdict='Agradecemos tu tiempo - Se revisaran resultados manualmente para continuar el proceso';chip='EVALUADO';chipSt='background:#FEF2F2;color:#991B1B;';}
 
   document.getElementById('verdict-text').textContent=verdict;
   const vc=document.getElementById('verdict-chip');
